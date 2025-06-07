@@ -1,0 +1,1678 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THAI KK TRAVEL - เช่ารถหรูและเรือสำราญ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #c49b63;
+            --dark: #1a1a1a;
+            --light: #f8f8f8;
+            --gray: #eaeaea;
+            --transition: all 0.3s ease;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Noto Sans Thai', 'Kanit', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--dark);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .logo i {
+            margin-right: 10px;
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        .nav-menu li {
+            margin: 0 15px;
+        }
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+            transition: var(--transition);
+        }
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+        .nav-menu a:hover:after {
+            width: 100%;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .language-switcher {
+            position: relative;
+        }
+        .current-language {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            color: #fff;
+            font-size: 14px;
+        }
+        .current-language img {
+            width: 24px;
+            margin-right: 5px;
+            border-radius: 3px;
+        }
+        .language-dropdown {
+            position: absolute;
+            top: 110%;
+            right: 0;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            min-width: 150px;
+            display: none;
+            z-index: 200;
+        }
+        .language-dropdown a {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #333;
+            transition: var(--transition);
+        }
+        .language-dropdown a:hover {
+            background: var(--gray);
+        }
+        .language-dropdown a img {
+            width: 20px;
+            margin-right: 10px;
+            border-radius: 3px;
+        }
+        .search-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .search-btn:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') 
+                        center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+        .hero-content {
+            max-width: 800px;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+        .cta-button {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .cta-button:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Search Section */
+        .search-section {
+            background: #fff;
+            padding: 50px 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .search-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+        }
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .filter-group label {
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+        .filter-group select, 
+        .filter-group input {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #fff;
+            font-family: inherit;
+        }
+        .search-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .search-btn-main {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .search-btn-main:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        .reset-btn {
+            background: #fff;
+            color: #333;
+            border: 1px solid #ddd;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .reset-btn:hover {
+            background: var(--gray);
+            transform: translateY(-2px);
+        }
+
+        /* Categories (หมวดรถเช่า) */
+        .categories {
+            padding: 80px 20px;
+            background: var(--light);
+        }
+        .categories-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .category-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .category-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        .category-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .category-card:hover .category-img img {
+            transform: scale(1.1);
+        }
+        .category-content {
+            padding: 20px;
+            text-align: center;
+        }
+        .category-content h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        .category-content p {
+            color: #777;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        .view-more {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+        .view-more:hover {
+            color: var(--dark);
+        }
+
+        /* Boat Services Section (บริการเรือของเรา) */
+        .boat-services {
+            padding: 80px 20px;
+            background: #fff;
+        }
+        .boat-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .boat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .boat-card {
+            background: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .boat-card:hover {
+            transform: translateY(-10px);
+        }
+        .boat-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        .boat-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .boat-card:hover .boat-img img {
+            transform: scale(1.1);
+        }
+        .boat-content {
+            padding: 25px;
+        }
+        .boat-content h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+            color: var(--dark);
+        }
+        .boat-content p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        .boat-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        .boat-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .boat-btn:hover {
+            background: var(--dark);
+        }
+
+        /* Boat Detail Page (รายละเอียดเรือ) */
+        .car-detail-page {
+            padding: 80px 20px;
+            background: #fff;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            display: none;
+        }
+        .detail-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        .detail-images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        .detail-images img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .detail-images img:hover {
+            transform: scale(1.03);
+        }
+        .detail-images img:first-child {
+            grid-column: span 2;
+            height: 300px;
+        }
+        .detail-info {
+            padding: 20px;
+        }
+        .detail-info h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        .detail-price {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+        .detail-specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .spec-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background: var(--light);
+            border-radius: 8px;
+        }
+        .spec-item i {
+            font-size: 24px;
+            color: var(--primary);
+            margin-right: 15px;
+        }
+        .spec-item div h4 {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 5px;
+        }
+        .spec-item div p {
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .book-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        .book-btn {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 15px 50px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 18px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        .book-btn i {
+            margin-right: 10px;
+        }
+        .book-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-3px);
+        }
+        .back-btn {
+            background: #fff;
+            color: var(--dark);
+            border: 1px solid #ddd;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        .back-btn i {
+            margin-right: 8px;
+        }
+        .back-btn:hover {
+            background: var(--gray);
+        }
+        .detail-description {
+            padding: 30px;
+            background: var(--light);
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        .detail-description h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--dark);
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+        }
+        .detail-description p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        .features-section {
+            margin-bottom: 50px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        .feature-item i {
+            font-size: 20px;
+            color: var(--primary);
+            margin-right: 15px;
+            width: 40px;
+            height: 40px;
+            background: rgba(196, 155, 99, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* About Section */
+        .extra-links {
+            padding: 80px 20px;
+            background: var(--light);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #fff;
+            padding: 70px 20px 30px;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+        }
+        .footer-col p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        .footer-links {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary);
+        }
+        .footer-links a i {
+            margin-right: 10px;
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            transition: var(--transition);
+        }
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+        .copyright {
+            max-width: 1200px;
+            margin: 50px auto 0;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            opacity: 0.7;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+            .detail-header {
+                grid-template-columns: 1fr;
+            }
+            .detail-images {
+                margin-bottom: 30px;
+            }
+        }
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            .logo {
+                margin-bottom: 15px;
+            }
+            .nav-menu {
+                margin: 20px 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero {
+                height: 500px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .detail-specs {
+                grid-template-columns: 1fr;
+            }
+            .book-section {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .book-btn, .back-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        @media (max-width: 576px) {
+            .nav-menu li {
+                margin: 5px 10px;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+            .section-title h2 {
+                font-size: 28px;
+            }
+            .detail-info h2 {
+                font-size: 28px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#hero-section" class="logo">
+                <i class="fas fa-car"></i> THAI KK TRAVEL
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#hero-section">หน้าแรก</a></li>
+                <li><a href="#categories">รถเช่า</a></li>
+                <li><a href="#boat-services">บริการเรือ</a></li>
+                <li><a href="#about-section">เกี่ยวกับเรา</a></li>
+                <li><a href="#contact-footer">ติดต่อ</a></li>
+            </ul>
+            <div class="header-actions">
+                <div class="language-switcher">
+                    <div class="current-language">
+                        <img src="https://flagcdn.com/w40/th.png" alt="Thai"> ไทย
+                    </div>
+                    <div class="language-dropdown">
+                        <a href="#"><img src="https://flagcdn.com/w40/th.png" alt="Thai"> ไทย</a>
+                        <a href="#"><img src="https://flagcdn.com/w40/cn.png" alt="Chinese"> 中文</a>
+                        <a href="#"><img src="https://flagcdn.com/w40/gb.png" alt="English"> English</a>
+                        <a href="#"><img src="https://flagcdn.com/w40/jp.png" alt="Japanese"> 日本語</a>
+                        <a href="#"><img src="https://flagcdn.com/w40/ru.png" alt="Russian"> Русский</a>
+                        <a href="#"><img src="https://flagcdn.com/w40/kr.png" alt="Korean"> 한국어</a>
+                    </div>
+                </div>
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero-section">
+        <div class="hero-content">
+            <h1>บริการเช่ารถหรูและเรือสำราญระดับพรีเมี่ยม</h1>
+            <p>ประสบการณ์การเดินทางที่เหนือระดับด้วยรถหรูและเรือยอชท์สุดพิเศษ จาก THAI KK TRAVEL</p>
+            <a href="#categories" class="cta-button">ดูรถทั้งหมด</a>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section" id="search-section">
+        <div class="search-container">
+            <div class="section-title">
+                <h2>ค้นหารถเช่า</h2>
+            </div>
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="car-type">ประเภทรถ</label>
+                    <select id="car-type">
+                        <option value="">ทั้งหมด</option>
+                        <option value="sedan">รถ Sedan</option>
+                        <option value="suv">รถ SUV</option>
+                        <option value="minivan">รถตู้</option>
+                        <option value="vip">รถตู้ VIP</option>
+                        <option value="alphard">รถ Alphard</option>
+                        <option value="bus">รถบัส</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="price-range">ช่วงราคา</label>
+                    <select id="price-range">
+                        <option value="">ทั้งหมด</option>
+                        <option value="0-3000">ไม่เกิน 3,000 บาท/วัน</option>
+                        <option value="3000-6000">3,000 - 6,000 บาท/วัน</option>
+                        <option value="6000-10000">6,000 - 10,000 บาท/วัน</option>
+                        <option value="10000+">มากกว่า 10,000 บาท/วัน</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="passengers">จำนวนผู้โดยสาร</label>
+                    <select id="passengers">
+                        <option value="">ทั้งหมด</option>
+                        <option value="1-4">1-4 คน</option>
+                        <option value="5-7">5-7 คน</option>
+                        <option value="8-12">8-12 คน</option>
+                        <option value="13+">13 คนขึ้นไป</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="transmission">ระบบเกียร์</label>
+                    <select id="transmission">
+                        <option value="">ทั้งหมด</option>
+                        <option value="auto">อัตโนมัติ</option>
+                        <option value="manual">ธรรมดา</option>
+                    </select>
+                </div>
+            </div>
+            <div class="search-actions">
+                <button class="search-btn-main">ค้นหา</button>
+                <button class="reset-btn">รีเซ็ต</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section (หมวดรถเช่า) -->
+    <section class="categories" id="categories">
+        <div class="categories-container">
+            <div class="section-title">
+                <h2>ประเภทรถเช่า</h2>
+            </div>
+            <div class="category-grid">
+                
+                <!-- SUV -->
+                <div class="category-card" data-type="suv">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="รถ SUV">
+                    </div>
+                    <div class="category-content">
+                        <h3>รถ SUV</h3>
+                        <p>รถ SUV ขนาดเล็กถึงใหญ่ หรูหรา ทันสมัย พร้อมสมรรถนะครบครัน</p>
+                        <a href="#suv-detail" class="view-more">ดูรายละเอียด</a>
+                    </div>
+                </div>
+                <!-- VIP Van -->
+                <div class="category-card" data-type="vip">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1580274437631-8a4dcf523e94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="รถตู้ VIP">
+                    </div>
+                    <div class="category-content">
+                        <h3>รถตู้-VIP</h3>
+                        <p>รถตู้และรถตู้ระดับพรีเมี่ยม เน้นความสะดวกสบายและความเป็นส่วนตัว</p>
+                        <a href="#vip-detail" class="view-more">ดูรายละเอียด</a>
+                    </div>
+                </div>
+                <!-- Alphard -->
+                <div class="category-card" data-type="alphard">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1632403550910-53e3b9f4c9e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="รถ Alphard">
+                    </div>
+                    <div class="category-content">
+                        <h3>รถ Alphard</h3>
+                        <p>รถยนต์หรูระดับไฮเอนด์ พร้อมความสะดวกสบายสูงสุด</p>
+                        <a href="#alphard-detail" class="view-more">ดูรายละเอียด</a>
+                    </div>
+                </div>
+                <!-- Sedan -->
+                <div class="category-card" data-type="sedan">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="รถ Sedan">
+                    </div>
+                    <div class="category-content">
+                        <h3>รถ Sedan</h3>
+                        <p>รถเก๋งหรูหรา ทรงสปอร์ต เหมาะสำหรับการเดินทางส่วนตัว</p>
+                        <a href="#sedan-detail" class="view-more">ดูรายละเอียด</a>
+                    </div>
+                </div>
+                <!-- Bus -->
+                <div class="category-card" data-type="bus">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1170&q=80" alt="Bus Exterior">
+                    </div>
+                    <div class="category-content">
+                        <h3>รถบัส</h3>
+                        <p>รถบัสขนาดเล็กและใหญ่ พร้อมบริการครบครันสำหรับกลุ่มท่องเที่ยว</p>
+                        <a href="#bus-detail" class="view-more">ดูรายละเอียด</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Boat Services Section (บริการเรือของเรา) -->
+    <section class="boat-services" id="boat-services">
+        <div class="boat-container">
+            <div class="section-title">
+                <h2>บริการเรือของเรา</h2>
+            </div>
+            <div class="boat-grid">
+                <!-- เรือยอชท์ -->
+                <div class="boat-card">
+                    <div class="boat-img">
+                        <img src="https://images.unsplash.com/photo-1504941214544-9c1c44559ab4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="เรือยอชท์">
+                    </div>
+                    <div class="boat-content">
+                        <h3>เรือยอชท์</h3>
+                        <p>บริการเช่าเรือยอชท์สุดหรู พร้อมลูกเรือมืออาชีพ สำหรับการเดินทางทะเลส่วนตัว</p>
+                        <div class="boat-price">เริ่มต้น 25,000 บาท/วัน</div>
+                        <a href="#boat-detail" class="boat-btn">ดูรายละเอียด</a>
+                    </div>
+                </div>
+                <!-- เรือใบ -->
+                <div class="boat-card">
+                    <div class="boat-img">
+                        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="เรือใบ">
+                    </div>
+                    <div class="boat-content">
+                        <h3>เรือใบ</h3>
+                        <p>สัมผัสประสบการณ์การแล่นเรือใบสุดโรแมนติก ในบรรยากาศแบบสุดพิเศษ</p>
+                        <div class="boat-price">เริ่มต้น 15,000 บาท/วัน</div>
+                        <a href="#boat-detail" class="boat-btn">ดูรายละเอียด</a>
+                    </div>
+                </div>
+                <!-- สปีดโบ๊ท -->
+                <div class="boat-card">
+                    <div class="boat-img">
+                        <img src="https://images.unsplash.com/photo-1587381420270-3e1a5b9e6904?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="สปีดโบ๊ท">
+                    </div>
+                    <div class="boat-content">
+                        <h3>สปีดโบ๊ท</h3>
+                        <p>เรือสปีดโบ๊ทความเร็วสูง สำหรับการเดินทางทะเลอย่างรวดเร็วและตื่นเต้น</p>
+                        <div class="boat-price">เริ่มต้น 8,000 บาท/วัน</div>
+                        <a href="#boat-detail" class="boat-btn">ดูรายละเอียด</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Boat Detail Page (รายละเอียดเรือ) -->
+    <section class="car-detail-page" id="boat-detail">
+        <div class="detail-header">
+            <!-- รูปเรือ -->
+            <div class="detail-images">
+                <!-- รูปใหญ่ -->
+                <img src="https://images.unsplash.com/photo-1504941214544-9c1c44559ab4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80"
+                     alt="เรือยอชท์" />
+                <!-- รูปย่อย -->
+                <img src="https://images.unsplash.com/photo-1566737238758-694b2f92f9e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                     alt="เรือใบ" />
+                <img src="https://images.unsplash.com/photo-1587381420270-3e1a5b9e6904?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                     alt="สปีดโบ๊ท" />
+            </div>
+            <!-- ข้อมูลเรือสรุป -->
+            <div class="detail-info">
+                <h2>เรือยอชท์สุดหรู</h2>
+                <div class="detail-price">25,000 - 80,000 บาท/วัน</div>
+                <div class="detail-specs">
+                    <!-- ประเภท -->
+                    <div class="spec-item">
+                        <i class="fas fa-ship"></i>
+                        <div>
+                            <h4>ประเภท</h4>
+                            <p>Yacht (ยอชท์)</p>
+                        </div>
+                    </div>
+                    <!-- ผู้โดยสาร -->
+                    <div class="spec-item">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <h4>จำนวนผู้โดยสาร</h4>
+                            <p>8 - 12 คน</p>
+                        </div>
+                    </div>
+                 
+                    <!-- เครื่องยนต์ -->
+                    <div class="spec-item">
+                        <i class="fas fa-gas-pump"></i>
+                        <div>
+                            <h4>เครื่องยนต์</h4>
+                            <p>ดีเซล 2 เครื่อง</p>
+                        </div>
+                    </div>
+                  
+                    <!-- ห้องพัก -->
+                    <div class="spec-item">
+                        <i class="fas fa-bed"></i>
+                        <div>
+                            <h4>ห้องพัก</h4>
+                            <p>2 ห้อง</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- ปุ่มกลับหน้าหลัก & จองเรือ -->
+                <div class="book-section">
+                    <button class="back-btn"><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
+                    <button class="book-btn"><i class="fas fa-calendar-check"></i> จองเรือตอนนี้</button>
+                </div>
+            </div>
+        </div>
+        <!-- รายละเอียดเรือ -->
+        <div class="detail-description">
+            <h3>รายละเอียดเรือยอชท์สุดหรู</h3>
+            <p>ยอชท์ส่วนตัวขนาด 30 ฟุต ตกแต่งด้วยวัสดุคุณภาพสูง ภายในประกอบด้วย 2 ห้องนอนใหญ่ พร้อมห้องน้ำในตัว 
+               พื้นที่ภายนอกกว้างขวาง มีโซนรับประทานอาหาร และโซนดาดฟ้าสำหรับชมวิวทะเล เหมาะสำหรับครอบครัวหรือกลุ่มเพื่อน 
+               ที่ต้องการเที่ยวทางทะเลอย่างส่วนตัวและพรีเมียม</p>
+            <p>เครื่องยนต์ดีเซลคู่ ให้กำลังรวม 800 แรงม้า เรือลำนี้สามารถแล่นได้ถึง 30 นอต 
+               พร้อมระบบ GPS นำทางบนเรือ ระบบเสียงรอบทิศทาง และ Wi-Fi ความเร็วสูง 
+               ลูกเรือมีประสบการณ์สูงพร้อมดูแลด้านความปลอดภัยตลอดการเดินทาง</p>
+            <p>รุ่นยอดนิยม: Sunseeker Predator 30, Azimut 32, Princess V40</p>
+            <p>หากคุณต้องการรุ่นอื่นหรือเรื่อยอชท์ขนาดต่างๆเพิ่มเติม สามารถติดต่อสอบถามเราได้
+        </p>
+        </div>
+        <!-- ฟีเจอร์พิเศษของเรือ -->
+        <div class="features-section">
+            <h3>ฟีเจอร์พิเศษ</h3>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-wifi"></i>
+                    <p>Wi-Fi ความเร็วสูง</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-camera"></i>
+                    <p>กล้องวงจรปิดรอบลำ</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-life-ring"></i>
+                    <p>อุปกรณ์ช่วยชีวิตครบครัน</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-tv"></i>
+                    <p>ทีวีจอแบนพร้อมระบบโฮมเธียเตอร์</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-snowflake"></i>
+                    <p>เครื่องปรับอากาศภายในห้องพัก</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-golf-ball"></i>
+                    <p>อุปกรณ์กีฬาทางน้ำ (เจ็ทสกี, ดำน้ำ)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Car Detail Pages -->
+    <!-- SUV Detail Page -->
+    <section class="car-detail-page" id="suv-detail">
+        <div class="detail-header">
+            <div class="detail-images">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Toyota Fortuner">
+                <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="SUV Interior">
+                <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="SUV Side View">
+            </div>
+            <div class="detail-info">
+                <h2>รถ SUV</h2>
+                <div class="detail-price">3,500 - 10,000 บาท/วัน</div>
+                <div class="detail-specs">
+                    <div class="spec-item">
+                        <i class="fas fa-car"></i>
+                        <div>
+                            <h4>ประเภท</h4>
+                            <p>SUV</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <h4>จำนวนผู้โดยสาร</h4>
+                            <p>5-7 ที่นั่ง</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-gas-pump"></i>
+                        <div>
+                            <h4>เชื้อเพลิง</h4>
+                            <p>ดีเซล - เบนซิน</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-cogs"></i>
+                        <div>
+                            <h4>เกียร์</h4>
+                            <p>อัตโนมัติ - แมนนวล</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-road"></i>
+                        <div>
+                            <h4>ระบบขับเคลื่อน</h4>
+                            <p>2WD / 4WD</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-suitcase"></i>
+                        <div>
+                            <h4>พื้นที่สัมภาระ</h4>
+                            <p>500 - 800 ลิตร</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="book-section">
+                    <button class="back-btn"><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
+                    <button class="book-btn"><i class="fas fa-calendar-check"></i> จองรถตอนนี้</button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-description">
+            <h3>รายละเอียดรถ SUV</h3>
+            <p>รถ SUV หรูหรา 5-7 ที่นั่ง พร้อมสมรรถนะครบครัน ระบบขับเคลื่อน 4WD เอนกประสงค์ เหมาะสำหรับการเดินทางท่องเที่ยวทั้งในเมืองและต่างจังหวัด รถ SUV ของเรามีให้เลือกหลากหลายรุ่น ตั้งแต่รุ่นมาตรฐานไปจนถึงรุ่นพรีเมียม พร้อมฟีเจอร์ครบครัน</p>
+            <p>ภายในห้องโดยสารตกแต่งอย่างหรูหราด้วยวัสดุคุณภาพสูง เบาะหนังแท้ พร้อมระบบความบันเทิงครบครัน หน้าจอสัมผัสขนาด 9 นิ้ว ระบบ Apple CarPlay และ Android Auto ปลอดภัยด้วยระบบความปลอดภัยครบวงจร พร้อมฟีเจอร์ช่วยเหลือผู้ขับขี่มากมาย</p>
+            <p>เรามีรถ SUV ให้เลือกหลากหลายรุ่น ทั้ง Toyota Fortuner, Honda CR-V, Mazda CX-5, Mitsubishi Pajero Sport และรุ่นหรูอย่าง Mercedes-Benz GLE, BMW X5 และ Porsche Cayenne</p>
+        </div>
+        <div class="features-section">
+            <h3>ฟีเจอร์พิเศษ</h3>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-snowflake"></i>
+                    <p>ระบบปรับอากาศแบบ 2 โซน</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <p>ระบบความปลอดภัยครบวงจร</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <p>ระบบนำทาง GPS</p>
+                </div>
+                
+                <div class="feature-item">
+                    <i class="fas fa-car-battery"></i>
+                    <p>ระบบสตาร์ทรถด้วยปุ่มกด</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-camera"></i>
+                    <p>กล้องถอยหลังและรอบคัน</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- VIP Detail Page -->
+    <section class="car-detail-page" id="vip-detail">
+        <div class="detail-header">
+            <div class="detail-images">
+                <img src="https://images.unsplash.com/photo-1580274437631-8a4dcf523e94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Mercedes-Benz V-Class">
+                <img src="https://images.unsplash.com/photo-1603386329225-868f9b1f7a3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="VIP Interior">
+                <img src="https://images.unsplash.com/photo-1580274437965-9a1c0b1b0b1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="VIP Side View">
+            </div>
+            <div class="detail-info">
+                <h2>รถตู้ VIP</h2>
+                <div class="detail-price">6,000 - 15,000 บาท/วัน</div>
+                <div class="detail-specs">
+                    <div class="spec-item">
+                        <i class="fas fa-car"></i>
+                        <div>
+                            <h4>ประเภท</h4>
+                            <p>VIP Van</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <h4>จำนวนผู้โดยสาร</h4>
+                            <p>7-10 ที่นั่ง</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-gas-pump"></i>
+                        <div>
+                            <h4>เชื้อเพลิง</h4>
+                            <p>เบนซิน - ดีเซล </p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-cogs"></i>
+                        <div>
+                            <h4>เกียร์</h4>
+                            <p>อัตโนมัติ</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-road"></i>
+                        <div>
+                            <h4>ระบบขับเคลื่อน</h4>
+                            <p>2WD</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-suitcase"></i>
+                        <div>
+                            <h4>พื้นที่สัมภาระ</h4>
+                            <p>700 - 1000 ลิตร</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="book-section">
+                    <button class="back-btn"><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
+                    <button class="book-btn"><i class="fas fa-calendar-check"></i> จองรถตอนนี้</button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-description">
+            <h3>รายละเอียดรถตู้ VIP</h3>
+            <p>รถตู้ VIP ห้องโดยสารตกแต่งพรีเมี่ยม เบาะนั่งปรับเอนได้ พร้อมระบบวิดีโอและเสียงคุณภาพสูง เหมาะสำหรับกลุ่มที่ต้องการความเป็นส่วนตัวสูงสุด</p>
+            <p>ภายในห้องโดยสารติดตั้งระบบปรับอากาศอัตโนมัติ 3 โซน, ระบบเครื่องเสียงระดับพรีเมี่ยม, ม่านบังแสงทุกที่นั่ง </p>
+            <p>รุ่นยอดนิยม เช่น Toyota Commuter,  vip Mercedes-Benz V-Class, Toyota MAJESTY ,</p>
+        </div>
+        <div class="features-section">
+            <h3>ฟีเจอร์พิเศษ</h3>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-snowflake"></i>
+                    <p>ระบบปรับอากาศอัตโนมัติ 3 โซน</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <p>ม่านบังแสง</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <p>ระบบนำทาง GPS</p>
+                </div>
+                
+                <div class="feature-item">
+                    <i class="fas fa-car-battery"></i>
+                    <p>ระบบสตาร์ทรถด้วยปุ่มกด</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-camera"></i>
+                    <p>กล้องมองภาพรอบคันระดับ HD</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alphard Detail Page -->
+    <section class="car-detail-page" id="alphard-detail">
+        <div class="detail-header">
+            <div class="detail-images">
+                <img src="https://images.unsplash.com/photo-1632403550910-53e3b9f4c9e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Toyota Alphard">
+                <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Alphard Interior">
+                <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Alphard Side View">
+            </div>
+            <div class="detail-info">
+                <h2>รถ Alphard</h2>
+                <div class="detail-price">5,000 - 13,000 บาท/วัน</div>
+                <div class="detail-specs">
+                    <div class="spec-item">
+                        <i class="fas fa-car"></i>
+                        <div>
+                            <h4>ประเภท</h4>
+                            <p>Alphard</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <h4>จำนวนผู้โดยสาร</h4>
+                            <p>5-7 ที่นั่ง</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-gas-pump"></i>
+                        <div>
+                            <h4>เชื้อเพลิง</h4>
+                            <p>เบนซิน - แก๊สโซฮอล์</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-cogs"></i>
+                        <div>
+                            <h4>เกียร์</h4>
+                            <p>อัตโนมัติ</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-road"></i>
+                        <div>
+                            <h4>ระบบขับเคลื่อน</h4>
+                            <p>2WD</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-suitcase"></i>
+                        <div>
+                            <h4>พื้นที่สัมภาระ</h4>
+                            <p>600 - 850 ลิตร</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="book-section">
+                    <button class="back-btn"><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
+                    <button class="book-btn"><i class="fas fa-calendar-check"></i> จองรถตอนนี้</button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-description">
+            <h3>รายละเอียดรถ Alphard</h3>
+            <p>Toyota Alphard รุ่นหรู ห้องโดยสารตกแต่งพรีเมี่ยม มีระบบปิดเสียงรบกวนภายนอก เบาะนั่งปรับเอนได้ พร้อมระบบสตาร์ทรถไร้กุญแจ เหมาะกับการเดินทางจัดงานสำคัญหรือรับรองผู้บริหาร</p>
+            <p>มีหน้าจอสำหรับผู้โดยสารตอนหลัง ระบบเครื่องเสียง BOSE รอบคัน พร้อมระบบปรับอากาศแยกซ้าย-ขวา เพิ่มความสะดวกสบายในการเดินทาง</p>
+            <p>รุ่นยอดนิยม: Toyota Alphard Executive Lounge, Toyota Alphard Premium</p>
+        </div>
+        <div class="features-section">
+            <h3>ฟีเจอร์พิเศษ</h3>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-snowflake"></i>
+                    <p>ระบบปรับอากาศอัตโนมัติ Dual-zone</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <p>ม่านบังแสงไฟฟ้า</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <p>ระบบนำทาง GPS</p>
+                </div>
+                
+                <div class="feature-item">
+                    <i class="fas fa-car-battery"></i>
+                    <p>ระบบสตาร์ทรถด้วยปุ่มกด</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-camera"></i>
+                    <p>กล้องมองภาพรอบคัน</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sedan Detail Page -->
+    <section class="car-detail-page" id="sedan-detail">
+        <div class="detail-header">
+            <div class="detail-images">
+                <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Mercedes-Benz E-Class">
+                <img src="https://images.unsplash.com/photo-1552519507-88aa2dfa9fdb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Sedan Interior">
+                <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2025&q=80" alt="Sedan Side View">
+            </div>
+            <div class="detail-info">
+                <h2>รถ Sedan</h2>
+                <div class="detail-price">3,500 - 8,000 บาท/วัน</div>
+                <div class="detail-specs">
+                    <div class="spec-item">
+                        <i class="fas fa-car"></i>
+                        <div>
+                            <h4>ประเภท</h4>
+                            <p>Sedan</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <h4>จำนวนผู้โดยสาร</h4>
+                            <p>3-4 ที่นั่ง</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-gas-pump"></i>
+                        <div>
+                            <h4>เชื้อเพลิง</h4>
+                            <p>เบนซิน</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-cogs"></i>
+                        <div>
+                            <h4>เกียร์</h4>
+                            <p>อัตโนมัติ</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-road"></i>
+                        <div>
+                            <h4>ระบบขับเคลื่อน</h4>
+                            <p>2WD</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-suitcase"></i>
+                        <div>
+                            <h4>พื้นที่สัมภาระ</h4>
+                            <p>450 - 550 ลิตร</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="book-section">
+                    <button class="back-btn"><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
+                    <button class="book-btn"><i class="fas fa-calendar-check"></i> จองรถตอนนี้</button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-description">
+            <h3>รายละเอียดรถ Sedan</h3>
+            <p>รถ Sedan หรูหรา ห้องโดยสารสะดวกสบาย เหมาะสำหรับการเดินทางทั้งในเมืองและต่างจังหวัด ห้องโดยสารเงียบ เบาะนั่งหุ้มหนังแท้ เพิ่มความหรูหรา</p>
+            <p>มีระบบเครื่องเสียงคุณภาพสูง หน้าจอสัมผัส พร้อมระบบต่างๆ และระบบความปลอดภัยครบครัน</p>
+            <p>รุ่นยอดนิยม เช่น TOYOTA CAMRY, HONDA ACCORD , Mercedes-Benz E-Class, BMW 5 Series, Audi A6, Lexus ES</p>
+        </div>
+        <div class="features-section">
+            <h3>ฟีเจอร์พิเศษ</h3>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-snowflake"></i>
+                    <p>ระบบปรับอากาศอัตโนมัติ Dual-zone</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <p>ระบบเบรก ABS, EBD</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <p>ระบบนำทาง GPS</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-wifi"></i>
+                    <p>Bluetooth Audio</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-car-battery"></i>
+                    <p>ระบบสตาร์ทรถด้วยปุ่มกด</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-camera"></i>
+                    <p>กล้องมองหลัง HD</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bus Detail Page -->
+    <section class="car-detail-page" id="bus-detail">
+        <div class="detail-header">
+            <div class="detail-images">
+                <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1170&q=80" alt="Mini Bus Exterior">
+                <img src="https://images.unsplash.com/photo-1603391485030-d6d3f0f4f37e?auto=format&fit=crop&w=1170&q=80" alt="Mini Bus Interior">
+                <img src="https://images.unsplash.com/photo-1533575254709-8b2c1d926d1f?auto=format&fit=crop&w=1170&q=80" alt="Mini Bus Seating">
+            </div>
+            <div class="detail-info">
+                <h2>รถบัส</h2>
+                <div class="detail-price">8,000 - 25,000 บาท/วัน</div>
+                <div class="detail-specs">
+                    <div class="spec-item">
+                        <i class="fas fa-car"></i>
+                        <div>
+                            <h4>ประเภท</h4>
+                            <p>Bus</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <h4>จำนวนผู้โดยสาร</h4>
+                            <p>15-30 ที่นั่ง</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-gas-pump"></i>
+                        <div>
+                            <h4>เชื้อเพลิง</h4>
+                            <p>ดีเซล</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-cogs"></i>
+                        <div>
+                            <h4>เกียร์</h4>
+                            <p>อัตโนมัติ</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-road"></i>
+                        <div>
+                            <h4>ระบบขับเคลื่อน</h4>
+                            <p>2WD</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-suitcase"></i>
+                        <div>
+                            <h4>พื้นที่สัมภาระ</h4>
+                            <p>1,500 - 2,000 ลิตร</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="book-section">
+                    <button class="back-btn"><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
+                    <button class="book-btn"><i class="fas fa-calendar-check"></i> จองรถตอนนี้</button>
+                </div>
+            </div>
+        </div>
+        <div class="detail-description">
+            <h3>รายละเอียดรถบัส</h3>
+            <p>รถบัสขนาดเล็กและกลาง เหมาะสำหรับกลุ่มท่องเที่ยว, ทัศนศึกษา หรือกรุ๊ปทัวร์ ห้องโดยสารกว้างขวาง มีที่วางขาและระบบปรับอากาศเต็มรูปแบบ</p>
+            <p>มีระบบเครื่องเสียง ลำโพงคุณภาพสูง ม่านบังแสงข้าง และที่เก็บสัมภาระใต้ท้องรถขนาดใหญ่</p>
+            <p>รุ่นยอดนิยม เช่น Toyota Coaster, Hyundai County, Mitsubishi Fuso Rosa</p>
+        </div>
+        <div class="features-section">
+            <h3>ฟีเจอร์พิเศษ</h3>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-snowflake"></i>
+                    <p>ระบบปรับอากาศเต็มคัน</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <p>เข็มขัดนิรภัยทุกที่นั่ง</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <p>ระบบนำทาง GPS</p>
+                </div>
+               
+                <div class="feature-item">
+                    <i class="fas fa-car-battery"></i>
+                    <p>ปลั๊กชาร์จ USB แต่ละที่นั่ง</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="extra-links" id="about-section">
+        <div style="max-width:800px; margin: 0 auto; text-align: center;">
+            <div class="section-title">
+                <h2>เกี่ยวกับ THAI KK TRAVEL </h2>
+            </div>
+            <p>THAI KK TRAVEL  ก่อตั้งขึ้นเพื่อให้บริการเช่ารถหรูและเรือสำราญคุณภาพสูงในประเทศไทย เรามีประสบการณ์กว่า 10 ปี ในการดูแลลูกค้าระดับพรีเมี่ยม พร้อมทีมงานมืออาชีพที่คัดสรรรถและเรือทุกลำด้วยมาตรฐานสูงสุด</p>
+            <p>นอกจากนี้ เรายังมีบริการด้านการจัดทริปพิเศษ เช่น ทัวร์ทะเลเกาะต่างๆ ทริปดำน้ำลึก และบริการเสริมบนเรือ เช่น ค็อกเทลเชฟ ปาร์ตี้บนเรือ จัดเลี้ยงรับรององค์กร หรืองานแต่งงานบนเรือ</p>
+            <p>ทีมงาน THAI KK TRAVEL  ยินดีให้คำปรึกษาและนำเสนอโปรแกรมการเดินทางที่ตอบโจทย์ทุกไลฟ์สไตล์ ทั้งเดินทางแบบครอบครัว กลุ่มเพื่อน คู่รัก หรือองค์กร</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>เกี่ยวกับเรา</h3>
+                <p>THAI KK TRAVEL  ให้บริการเช่ารถหรูและเรือสำราญระดับพรีเมี่ยม ด้วยมาตรฐานการบริการสูงสุดสำหรับลูกค้าทุกท่าน</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-line"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>ลิงก์ด่วน</h3>
+                <ul class="footer-links">
+                    <li><a href="#hero-section"><i class="fas fa-chevron-right"></i> หน้าแรก</a></li>
+                    <li><a href="#categories"><i class="fas fa-chevron-right"></i> ประเภทรถเช่า</a></li>
+                    <li><a href="#boat-services"><i class="fas fa-chevron-right"></i> บริการเรือ</a></li>
+                    <li><a href="#about-section"><i class="fas fa-chevron-right"></i> เกี่ยวกับเรา</a></li>
+                    <li><a href="#contact-footer"><i class="fas fa-chevron-right"></i> ติดต่อเรา</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>ประเภทรถเช่า</h3>
+                <ul class="footer-links">
+                    <li><a href="#van-detail"><i class="fas fa-chevron-right"></i> รถตู้</a></li>
+                    <li><a href="#suv-detail"><i class="fas fa-chevron-right"></i> รถ SUV</a></li>
+                    <li><a href="#vip-detail"><i class="fas fa-chevron-right"></i> รถตู้ VIP</a></li>
+                    <li><a href="#alphard-detail"><i class="fas fa-chevron-right"></i> รถ Alphard</a></li>
+                    <li><a href="#sedan-detail"><i class="fas fa-chevron-right"></i> รถ Sedan</a></li>
+                    <li><a href="#bus-detail"><i class="fas fa-chevron-right"></i> รถบัส</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>ติดต่อเรา</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 ถนนสุขุมวิท แขวงคลองเตย เขตคลองเตย กรุงเทพฯ 10110</a></li>
+                    <li><a href="#"><i class="fas fa-phone"></i> 096-826-8168</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> thaikktravel@gmail.com</a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i> จันทร์-อาทิตย์: 08:00 - 20:00 น.</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 THAI KK TRAVEL. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Language Dropdown Toggle
+        document.querySelector('.current-language').addEventListener('click', function(e) {
+            e.stopPropagation();
+            const dropdown = document.querySelector('.language-dropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        });
+        // คลิ๊กนอกปิด dropdown
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.language-switcher')) {
+                document.querySelector('.language-dropdown').style.display = 'none';
+            }
+        });
+
+        // ฟังก์ชัน Filter (ตัวอย่าง Alert เฉยๆ)
+        const searchBtn = document.querySelector('.search-btn-main');
+        searchBtn.addEventListener('click', function() {
+            const carType = document.getElementById('car-type').value;
+            const priceRange = document.getElementById('price-range').value;
+            const passengers = document.getElementById('passengers').value;
+            const transmission = document.getElementById('transmission').value;
+            alert(`Filter applied:\nType: ${carType || 'All'}\nPrice: ${priceRange || 'All'}\nPassengers: ${passengers || 'All'}\nTransmission: ${transmission || 'All'}`);
+        });
+
+        // Reset filters
+        document.querySelector('.reset-btn').addEventListener('click', function() {
+            document.getElementById('car-type').value = '';
+            document.getElementById('price-range').value = '';
+            document.getElementById('passengers').value = '';
+            document.getElementById('transmission').value = '';
+        });
+
+        // ซ่อน/แสดงส่วนต่าง ๆ ของหน้าแรก
+        const mainSections = [
+            document.querySelector('.hero'),
+            document.querySelector('.search-section'),
+            document.querySelector('.categories'),
+            document.querySelector('.boat-services'),
+            document.querySelector('#about-section'),
+            document.querySelector('footer')
+        ];
+        function hideMain() {
+            mainSections.forEach(el => {
+                if (el) el.style.display = 'none';
+            });
+        }
+        function showMain() {
+            mainSections.forEach(el => {
+                if (el) el.style.display = 'block';
+            });
+        }
+        // เมื่อคลิก "ดูรายละเอียด" ของแต่ละการ์ด (class="view-more") ในหมวดรถ ให้ซ่อนส่วนหลัก แล้วแสดง Section ที่ตรงกัน
+        document.querySelectorAll('.view-more').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href').slice(1);
+                const detailSection = document.getElementById(targetId);
+                if (!detailSection) return;
+                e.preventDefault();
+                hideMain();
+                detailSection.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+        // เมื่อคลิก "ดูรายละเอียด" ของเรือ (class="boat-btn") ให้ไปที่ Section boat-detail
+        document.querySelectorAll('.boat-btn').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const detailSection = document.getElementById('boat-detail');
+                e.preventDefault();
+                hideMain();
+                detailSection.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+        // ปุ่ม “กลับหน้าหลัก” ในทุก Section Detail (class="back-btn")
+        document.querySelectorAll('.car-detail-page .back-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const detailSection = this.closest('.car-detail-page');
+                if (!detailSection) return;
+                detailSection.style.display = 'none';
+                showMain();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+
+</body>
+</html>
