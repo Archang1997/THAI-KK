@@ -8,8 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #c49b63;
-            --dark: #1a1a1a;
+            --primary: #300b8f;
+            --dark: #124cb0;
             --light: #f8f8f8;
             --gray: #eaeaea;
             --transition: all 0.3s ease;
@@ -36,7 +36,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(235, 235, 235, 0.1);
         }
         .header-container {
             max-width: 1200px;
@@ -48,15 +48,13 @@
             padding: 0 20px;
         }
         .logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
+            font-size: 0;
+            
         }
-        .logo i {
-            margin-right: 10px;
+        .logo img {
+            display: block;
+            max-height: 60px;
+            width: auto;
         }
         .nav-menu {
             display: flex;
@@ -150,7 +148,7 @@
         .hero {
             height: 600px;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('hero-cover.png') 
+                        url(hero-cover.png) 
                         center/cover no-repeat;
             display: flex;
             align-items: center;
@@ -737,7 +735,7 @@
     <header>
         <div class="header-container">
             <a href="#hero-section" class="logo">
-                <i class="fas fa-car"></i> THAI KK TRAVEL
+                <i class="fas fa-car"></i> <img src="logo2_cutbg.png" alt="">
             </a>
             <ul class="nav-menu">
                 <li><a href="#hero-section">หน้าแรก</a></li>
@@ -766,6 +764,7 @@
             </div>
         </div>
     </header>
+
 
     <!-- Hero Section -->
     <section class="hero" id="hero-section">
