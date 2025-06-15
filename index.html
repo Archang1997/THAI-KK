@@ -1,14 +1,41 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="th" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THAI KK TRAVEL - เช่ารถหรูและเรือสำราญ</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-th="THAI KK TRAVEL - เช่ารถหรูและเรือสำราญ"
+         data-en="THAI KK TRAVEL - Luxury Car & Yacht Rentals"
+         data-zh="THAI KK TRAVEL - 豪华汽车和游艇租赁"
+         data-ko="THAI KK TRAVEL - 프리미엄 고급 자동차 및 요트 렌탈"
+         data-ru="THAI KK TRAVEL - Премиум аренда автомобилей и яхт"
+         data-ja="THAI KK TRAVEL - 高級車とヨットのレンタル">THAI KK TRAVEL</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+        /* เพิ่มสไตล์สำหรับรองรับภาษาอาหรับ */
+        [lang="ar"] {
+            direction: rtl;
+            font-family: 'Noto Sans Thai', 'Kanit', Tahoma, sans-serif;
+        }
+        
+        [lang="ar"] .header-container,
+        [lang="ar"] .footer-container {
+            direction: rtl;
+        }
+        
+        [lang="ar"] .nav-menu {
+            padding-right: 0;
+        }
+        
+        [lang="ar"] .section-title h2:after {
+            left: auto;
+            right: 50%;
+            transform: translateX(50%);
+        }
+        
+        /* เพิ่มสไตล์เดิมทั้งหมดที่นี่... */
         :root {
-            --primary: #300b8f;
+            --primary: #1b0598;
             --dark: #124cb0;
             --light: #f8f8f8;
             --gray: #eaeaea;
@@ -730,863 +757,2331 @@
     </style>
 </head>
 <body>
+    
+<!-- วางไว้หลังโค้ด filter/โมดาล ปัจจุบัน แต่ก่อน </body> -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const dropdownLinks = document.querySelectorAll('.language-dropdown a[data-lang]');
+  const currentLangBtn = document.querySelector('.current-language');
+  const allTranslatables = document.querySelectorAll('[data-th]');
+
+  dropdownLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const lang = this.getAttribute('data-lang');
+      // เปลี่ยนภาษาใน HTML
+      document.documentElement.lang = lang;
+      
+      // สลับข้อความทุกตัว
+      allTranslatables.forEach(el => {
+        const txt = el.getAttribute(`data-${lang}`);
+        if (txt) el.textContent = txt;
+      });
+      // อัปเดตปุ่มแสดงภาษาปัจจุบัน
+      currentLangBtn.innerHTML = this.innerHTML;
+      // ปิด dropdown
+      document.querySelector('.language-dropdown').style.display = 'none';
+    });
+  });
+});
+</script>
+
 
     <!-- Header -->
-    <header>
-        <div class="header-container">
-            <a href="#hero-section" class="logo">
-                <i class="fas fa-car"></i> <img src="logo2_cutbg.png" alt="">
-            </a>
-            <ul class="nav-menu">
-                <li><a href="#hero-section">หน้าแรก</a></li>
-                <li><a href="#categories">รถเช่า</a></li>
-                <li><a href="#boat-services">บริการเรือ</a></li>
-                <li><a href="#about-section">เกี่ยวกับเรา</a></li>
-                <li><a href="#contact-footer">ติดต่อ</a></li>
-            </ul>
-            <div class="header-actions">
-                <div class="language-switcher">
-                    <div class="current-language">
-                        <img src="https://flagcdn.com/w40/th.png" alt="Thai"> ไทย
-                    </div>
-                    <div class="language-dropdown">
-                        <a href="#"><img src="https://flagcdn.com/w40/th.png" alt="Thai"> ไทย</a>
-                        <a href="#"><img src="https://flagcdn.com/w40/cn.png" alt="Chinese"> 中文</a>
-                        <a href="#"><img src="https://flagcdn.com/w40/gb.png" alt="English"> English</a>
-                        <a href="#"><img src="https://flagcdn.com/w40/jp.png" alt="Japanese"> 日本語</a>
-                        <a href="#"><img src="https://flagcdn.com/w40/ru.png" alt="Russian"> Русский</a>
-                        <a href="#"><img src="https://flagcdn.com/w40/kr.png" alt="Korean"> 한국어</a>
-                    </div>
-                </div>
-                <button class="search-btn">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
+<header>
+  <div class="header-container">
+    <a href="#hero-section" class="logo">
+      <img src="logo2_cutbg.png" alt="Logo">
+      <span class="logo-text"
+            data-th="THAI KK TRAVEL"
+            data-en="THAI KK TRAVEL"
+            data-zh="THAI KK TRAVEL"
+            data-ja="THAI KK TRAVEL"
+            data-ko="THAI KK TRAVEL"
+            data-ru="THAI KK TRAVEL">THAI KK TRAVEL</span>
+      >
+    </a>
+    <ul class="nav-menu">
+      <li>
+        <a href="#hero-section">
+          <span
+            data-th="หน้าแรก"
+            data-en="Home"
+            data-zh="首页"
+            data-ja="ホーム"
+            data-ko="홈"
+            data-ru="Главная">หน้าแรก</span>
+        </a>
+      </li>
+      <li>
+        <a href="#categories">
+          <span
+            data-th="รถเช่า"
+            data-en="Cars"
+            data-zh="汽车租赁"
+            data-ja="車両"
+            data-ko="차량"
+            data-ru="Авто">รถเช่า</span>
+        </a>
+      </li>
+      <li>
+        <a href="#boat-services">
+          <span
+            data-th="บริการเรือ"
+            data-en="Boats"
+            data-zh="船只服务"
+            data-ja="ボート"
+            data-ko="보트"
+            data-ru="Лодки">บริการเรือ</span>
+        </a>
+      </li>
+      <li>
+        <a href="#about-section">
+          <span
+            data-th="เกี่ยวกับเรา"
+            data-en="About"
+            data-zh="关于我们"
+            data-ja="私たちについて"
+            data-ko="소개"
+            data-ru="О нас">เกี่ยวกับเรา</span>
+        </a>
+      </li>
+      <li>
+        <a href="#contact-footer">
+          <span
+            data-th="ติดต่อ"
+            data-en="Contact"
+            data-zh="联系"
+            data-ja="お問い合わせ"
+            data-ko="문의"
+            data-ru="Контакты">ติดต่อ</span>
+        </a>
+      </li>
+    </ul>
+    <div class="header-actions">
+      <div class="language-switcher">
+        <div class="current-language">
+          <img src="https://flagcdn.com/w40/th.png" alt="" /><span>ไทย</span>
         </div>
-    </header>
+        <div class="language-dropdown">
+          <a href="#" data-lang="th"><img src="https://flagcdn.com/w40/th.png" alt="" /> ไทย</a>
+          <a href="#" data-lang="en"><img src="https://flagcdn.com/w40/gb.png" alt="" /> English</a>
+          <a href="#" data-lang="zh"><img src="https://flagcdn.com/w40/cn.png" alt="" /> 中文</a>
+          <a href="#" data-lang="ja"><img src="https://flagcdn.com/w40/jp.png" alt="" /> 日本語</a>
+          <!-- เพิ่ม 2 ภาษาใหม่ -->
+          <a href="#" data-lang="ko"><img src="https://flagcdn.com/w40/kr.png" alt="" /> 한국어</a>
+          <a href="#" data-lang="ru"><img src="https://flagcdn.com/w40/ru.png" alt="" /> Русский</a>
+        </div>
+      </div>
+      <button class="search-btn"><i class="fas fa-search"></i></button>
+    </div>
+  </div>
+</header>
 
 
     <!-- Hero Section -->
-    <section class="hero" id="hero-section">
-        <div class="hero-content">
-            <h1>บริการเช่ารถหรูและเรือสำราญระดับพรีเมี่ยม</h1>
-            <p>ประสบการณ์การเดินทางที่เหนือระดับด้วยรถหรูและเรือยอชท์สุดพิเศษ จาก THAI KK TRAVEL</p>
-            <a href="#categories" class="cta-button">ดูรถทั้งหมด</a>
-        </div>
-    </section>
+<section class="hero" id="hero-section">
+    <div class="hero-content">
+        <h1
+          data-th="บริการเช่ารถหรูและเรือสำราญระดับพรีเมี่ยม"
+          data-zh="高端豪華轎車與遊艇租賃服務"
+          data-en="Premium Luxury Car & Yacht Rentals"
+          data-ja="プレミアム高級車＆ヨットレンタルサービス"
+          data-ru="Премиальный прокат роскошных автомобилей и яхт"
+          data-ko="프리미엄 럭셔리 차량 및 요트 렌탈 서비스"
+          data-ar="خدمات تأجير السيارات الفاخرة واليخوت الفاخرة"
+        >
+          บริการเช่ารถหรูและเรือสำราญระดับพรีเมี่ยม
+        </h1>
+        <p
+          data-th="ประสบการณ์การเดินทางที่เหนือระดับด้วยรถหรูและเรือยอชท์สุดพิเศษ จาก THAI KK TRAVEL"
+          data-zh="体验超凡旅程——THAI KK TRAVEL 的豪华轿车与游艇租赁"
+          data-en="Experience an elevated journey with luxury cars and yachts from THAI KK TRAVEL"
+          data-ja="THAI KK TRAVEL の高級車とヨットでワンランク上の旅を体験"
+          data-ru="Испытайте высший уровень путешествий с роскошными автомобилями и яхтами от THAI KK TRAVEL"
+          data-ko="THAI KK TRAVEL의 럭셔리 차량 및 요트로 한 단계 업그레이드된 여행을 경험하세요"
+          data-ar="تجربة سفر استثنائية مع سيارات ويخوت فاخرة من THAI KK TRAVEL"
+        >
+          ประสบการณ์การเดินทางที่เหนือระดับด้วยรถหรูและเรือยอชท์สุดพิเศษ จาก THAI KK TRAVEL
+        </p>
+        <a
+          href="#categories"
+          class="cta-button"
+          data-th="ดูรถทั้งหมด"
+          data-zh="查看所有車輛"
+          data-en="View All Cars"
+          data-ja="すべての車を見る"
+          data-ru="Смотреть все автомобили"
+          data-ko="모든 차량 보기"
+          data-ar="عرض جميع السيارات"
+        >
+          ดูรถทั้งหมด
+        </a>
+    </div>
+</section>
+
+<head>
+  …
+  <style>
+    /* สไตล์เดิมทั้งหมด… */
+
+    /* ซ่อน Search Section */
+    #search-section {
+      display: none !important;
+    }
+  </style>
+</head>
+
 
     <!-- Search Section -->
     <section class="search-section" id="search-section">
         <div class="search-container">
             <div class="section-title">
-                <h2>ค้นหารถเช่า</h2>
+                <h2 data-th="ค้นหารถเช่า"
+                    data-zh="搜索租车"
+                    data-en="Search Car Rentals"
+                    data-ja="レンタカー検索"
+                    data-ru="Поиск авто"
+                    data-ko="차량 검색"
+                    data-ar="بحث عن سيارات للإيجار"
+                >ค้นหารถเช่า</h2>
             </div>
             <div class="filters">
                 <div class="filter-group">
-                    <label for="car-type">ประเภทรถ</label>
+                    <label for="car-type" data-th="ประเภทรถ" data-zh="车辆类型" data-en="Car Type" data-ja="車種" data-ru="Тип авто" data-ko="차종" data-ar="نوع السيارة">ประเภทรถ</label>
                     <select id="car-type">
-                        <option value="">ทั้งหมด</option>
-                        <option value="sedan">รถ Sedan</option>
-                        <option value="suv">รถ SUV</option>
-                        <option value="minivan">รถตู้</option>
-                        <option value="vip">รถตู้ VIP</option>
-                        <option value="alphard">รถ Alphard</option>
-                        <option value="bus">รถบัส</option>
+                        <option value="" data-th="ทั้งหมด" data-zh="全部" data-en="All" data-ja="すべて" data-ru="Все" data-ko="전체" data-ar="الكل">ทั้งหมด</option>
+                        <option value="sedan" data-th="รถ Sedan" data-zh="轿车" data-en="Sedan" data-ja="セダン" data-ru="Седан" data-ko="세단" data-ar="سيارة سيدان">รถ Sedan</option>
+                        <option value="suv" data-th="รถ SUV" data-zh="SUV" data-en="SUV" data-ja="SUV" data-ru="Внедорожник" data-ko="SUV" data-ar="سيارة دفع رباعي">รถ SUV</option>
+                        <option value="minivan" data-th="รถตู้" data-zh="面包车" data-en="Minivan" data-ja="ミニバン" data-ru="Минивэн" data-ko="미니밴" data-ar="ميني فان">รถตู้</option>
+                        <option value="vip" data-th="รถตู้ VIP" data-zh="VIP面包车" data-en="VIP Van" data-ja="VIPバン" data-ru="VIP Микроавтобус" data-ko="VIP 밴" data-ar="سيارة فان VIP">รถตู้ VIP</option>
+                        <option value="alphard" data-th="รถ Alphard" data-zh="阿尔法" data-en="Alphard" data-ja="アルファード" data-ru="Альфард" data-ko="알파드" data-ar="ألفارد">รถ Alphard</option>
+                        <option value="bus" data-th="รถบัส" data-zh="巴士" data-en="Bus" data-ja="バス" data-ru="Автобус" data-ko="버스" data-ar="حافلة">รถบัส</option>
                     </select>
                 </div>
                 <div class="filter-group">
-                    <label for="price-range">ช่วงราคา</label>
+                    <label for="price-range" data-th="ช่วงราคา" data-zh="价格范围" data-en="Price Range" data-ja="価格帯" data-ru="Ценовой диапазон" data-ko="가격 범위" data-ar="نطاق السعر">ช่วงราคา</label>
                     <select id="price-range">
-                        <option value="">ทั้งหมด</option>
-                        <option value="0-3000">ไม่เกิน 3,000 บาท/วัน</option>
-                        <option value="3000-6000">3,000 - 6,000 บาท/วัน</option>
-                        <option value="6000-10000">6,000 - 10,000 บาท/วัน</option>
-                        <option value="10000+">มากกว่า 10,000 บาท/วัน</option>
+                        <option value="" data-th="ทั้งหมด" data-zh="全部" data-en="All" data-ja="すべて" data-ru="Все" data-ko="전체" data-ar="الكل">ทั้งหมด</option>
+                        <option value="0-3000" data-th="ไม่เกิน 3,000 บาท/วัน" data-zh="不超过 3,000 泰铢/天" data-en="Up to 3,000 THB/day" data-ja="1日3,000バーツまで" data-ru="До 3000 бат/день" data-ko="하루 최대 3,000 바트" data-ar="حتى 3000 باهت/يوم">ไม่เกิน 3,000 บาท/วัน</option>
+                        <option value="3000-6000" data-th="3,000 - 6,000 บาท/วัน" data-zh="3,000 - 6,000 泰铢/天" data-en="3,000 - 6,000 THB/day" data-ja="3,000〜6,000バーツ/日" data-ru="3,000 - 6,000 бат/день" data-ko="3,000 - 6,000 바트/일" data-ar="3000 - 6000 باهت/يوم">3,000 - 6,000 บาท/วัน</option>
+                        <option value="6000-10000" data-th="6,000 - 10,000 บาท/วัน" data-zh="6,000 - 10,000 泰铢/天" data-en="6,000 - 10,000 THB/day" data-ja="6,000〜10,000バーツ/日" data-ru="6,000 - 10,000 бат/день" data-ko="6,000 - 10,000 바트/일" data-ar="6000 - 10000 باهت/يوم">6,000 - 10,000 บาท/วัน</option>
+                        <option value="10000+" data-th="มากกว่า 10,000 บาท/วัน" data-zh="超过 10,000 泰铢/天" data-en="Over 10,000 THB/day" data-ja="10,000バーツ以上/日" data-ru="Более 10,000 бат/день" data-ko="10,000 바트 이상/일" data-ar="أكثر من 10000 باهت/يوم">มากกว่า 10,000 บาท/วัน</option>
                     </select>
                 </div>
                 <div class="filter-group">
-                    <label for="passengers">จำนวนผู้โดยสาร</label>
+                    <label for="passengers" data-th="จำนวนผู้โดยสาร" data-zh="乘客人数" data-en="Passengers" data-ja="乗客数" data-ru="Кол-во пассажиров" data-ko="승객 수" data-ar="عدد الركاب">จำนวนผู้โดยสาร</label>
                     <select id="passengers">
-                        <option value="">ทั้งหมด</option>
-                        <option value="1-4">1-4 คน</option>
-                        <option value="5-7">5-7 คน</option>
-                        <option value="8-12">8-12 คน</option>
-                        <option value="13+">13 คนขึ้นไป</option>
+                        <option value="" data-th="ทั้งหมด" data-zh="全部" data-en="All" data-ja="すべて" data-ru="Все" data-ko="전체" data-ar="الكل">ทั้งหมด</option>
+                        <option value="1-4" data-th="1-4 คน" data-zh="1-4 人" data-en="1-4 people" data-ja="1〜4人" data-ru="1-4 чел" data-ko="1-4명" data-ar="1-4 أشخاص">1-4 คน</option>
+                        <option value="5-7" data-th="5-7 คน" data-zh="5-7 人" data-en="5-7 people" data-ja="5〜7人" data-ru="5-7 чел" data-ko="5-7명" data-ar="5-7 أشخاص">5-7 คน</option>
+                        <option value="8-12" data-th="8-12 คน" data-zh="8-12 人" data-en="8-12 people" data-ja="8〜12人" data-ru="8-12 чел" data-ko="8-12명" data-ar="8-12 أشخاص">8-12 คน</option>
+                        <option value="13+" data-th="13 คนขึ้นไป" data-zh="13 人以上" data-en="13+ people" data-ja="13人以上" data-ru="13+ чел" data-ko="13명 이상" data-ar="13+ أشخاص">13 คนขึ้นไป</option>
                     </select>
                 </div>
                 <div class="filter-group">
-                    <label for="transmission">ระบบเกียร์</label>
+                    <label for="transmission" data-th="ระบบเกียร์" data-zh="变速箱" data-en="Transmission" data-ja="トランスミッション" data-ru="Трансмиссия" data-ko="변속기" data-ar="ناقل الحركة">ระบบเกียร์</label>
                     <select id="transmission">
-                        <option value="">ทั้งหมด</option>
-                        <option value="auto">อัตโนมัติ</option>
-                        <option value="manual">ธรรมดา</option>
+                        <option value="" data-th="ทั้งหมด" data-zh="全部" data-en="All" data-ja="すべて" data-ru="Все" data-ko="전체" data-ar="الكل">ทั้งหมด</option>
+                        <option value="auto" data-th="อัตโนมัติ" data-zh="自动" data-en="Automatic" data-ja="オートマチック" data-ru="Автомат" data-ko="자동" data-ar="أوتوماتيكي">อัตโนมัติ</option>
+                        <option value="manual" data-th="ธรรมดา" data-zh="手动" data-en="Manual" data-ja="マニュアル" data-ru="Механика" data-ko="수동" data-ar="يدوي">ธรรมดา</option>
                     </select>
                 </div>
             </div>
             <div class="search-actions">
-                <button class="search-btn-main">ค้นหา</button>
-                <button class="reset-btn">รีเซ็ต</button>
+                <button class="search-btn-main" data-th="ค้นหา" data-zh="搜索" data-en="Search" data-ja="検索" data-ru="Поиск" data-ko="검색" data-ar="بحث">ค้นหา</button>
+                <button class="reset-btn" data-th="รีเซ็ต" data-zh="重置" data-en="Reset" data-ja="リセット" data-ru="Сброс" data-ko="초기화" data-ar="إعادة تعيين">รีเซ็ต</button>
             </div>
         </div>
     </section>
+    
+   <!-- Categories Section (หมวดรถเช่า) -->
+<section class="categories" id="categories">
+  <div class="categories-container">
+    <div class="section-title">
+      <h2
+        data-th="ประเภทรถเช่า"
+        data-en="Car Rental Categories"
+        data-zh="租车类别"
+        data-ja="レンタカーのカテゴリ"
+        data-ko="차량 대여 카테고리"
+        data-ru="Категории аренды авто"
+      >ประเภทรถเช่า</h2>
+    </div>
+    <div class="category-grid">
 
-    <!-- Categories Section (หมวดรถเช่า) -->
-    <section class="categories" id="categories">
-        <div class="categories-container">
-            <div class="section-title">
-                <h2>ประเภทรถเช่า</h2>
-            </div>
-            <div class="category-grid">
-                
-                <!-- SUV -->
-                <div class="category-card" data-type="suv">
-                    <div class="category-img">
-                        <img src="โตใหม่.png" alt="รถ SUV">
-                    </div>
-                    <div class="category-content">
-                        <h3>รถ SUV</h3>
-                        <p>รถ SUV ขนาดเล็กถึงใหญ่ หรูหรา ทันสมัย พร้อมสมรรถนะครบครัน</p>
-                        <a href="#suv-detail" class="view-more">ดูรายละเอียด</a>
-                    </div>
-                </div>
-                <!-- VIP Van -->
-                <div class="category-card" data-type="vip">
-                    <div class="category-img">
-                        <img src="มาเจสแต่ง.png" alt="รถตู้ VIP">
-                    </div>
-                    <div class="category-content">
-                        <h3>รถตู้-VIP</h3>
-                        <p>รถตู้และรถตู้ระดับพรีเมี่ยม เน้นความสะดวกสบายและความเป็นส่วนตัว</p>
-                        <a href="#vip-detail" class="view-more">ดูรายละเอียด</a>
-                    </div>
-                </div>
-                <!-- Alphard -->
-                <div class="category-card" data-type="alphard">
-                    <div class="category-img">
-                        <img src="Alphard.png" alt="รถ Alphard">
-                    </div>
-                    <div class="category-content">
-                        <h3>รถ Alphard</h3>
-                        <p>รถยนต์หรูระดับไฮเอนด์ พร้อมความสะดวกสบายสูงสุด</p>
-                        <a href="#alphard-detail" class="view-more">ดูรายละเอียด</a>
-                    </div>
-                </div>
-                <!-- Sedan -->
-                <div class="category-card" data-type="sedan">
-                    <div class="category-img">
-                        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="รถ Sedan">
-                    </div>
-                    <div class="category-content">
-                        <h3>รถ Sedan</h3>
-                        <p>รถเก๋งหรูหรา ทรงสปอร์ต เหมาะสำหรับการเดินทางส่วนตัว</p>
-                        <a href="#sedan-detail" class="view-more">ดูรายละเอียด</a>
-                    </div>
-                </div>
-                <!-- Bus -->
-                <div class="category-card" data-type="bus">
-                    <div class="category-img">
-                        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1170&q=80" alt="Bus Exterior">
-                    </div>
-                    <div class="category-content">
-                        <h3>รถบัส</h3>
-                        <p>รถบัสขนาดเล็กและใหญ่ พร้อมบริการครบครันสำหรับกลุ่มท่องเที่ยว</p>
-                        <a href="#bus-detail" class="view-more">ดูรายละเอียด</a>
-                    </div>
-                </div>
-            </div>
+      <!-- SUV -->
+      <div class="category-card" data-type="suv">
+        <div class="category-img">
+          <img src="โตใหม่.png" alt="รถ SUV">
         </div>
-    </section>
+        <div class="category-content">
+          <h3
+            data-th="รถ SUV"
+            data-en="SUV"
+            data-zh="SUV 车型"
+            data-ja="SUV"
+            data-ko="SUV"
+            data-ru="Внедорожник"
+          >รถ SUV</h3>
+          <p
+            data-th="รถ SUV ขนาดเล็กถึงใหญ่ หรูหรา ทันสมัย พร้อมสมรรถนะครบครัน"
+            data-en="From compact to full-size luxury SUVs with modern amenities and performance"
+            data-zh="从紧凑型到全尺寸豪华SUV，配备现代化设施和卓越性能"
+            data-ja="コンパクトからフルサイズまでの高級SUV、最新装備とパフォーマンスを兼ね備えています"
+            data-ko="소형부터 대형까지 현대적인 편의성과 성능을 갖춘 럭셔리 SUV"
+            data-ru="От компактных до полноразмерных роскошных внедорожников с современными удобствами и мощностью"
+          >รถ SUV ขนาดเล็กถึงใหญ่ หรูหรา ทันสมัย พร้อมสมรรถนะครบครัน</p>
+          <a href="#suv-detail" class="view-more"
+             data-th="ดูรายละเอียด"
+             data-en="View Details"
+             data-zh="查看详情"
+             data-ja="詳細を見る"
+             data-ko="자세히 보기"
+             data-ru="Подробнее"
+          >ดูรายละเอียด</a>
+        </div>
+      </div>
 
-    <!-- Boat Services Section (บริการเรือของเรา) -->
-    <section class="boat-services" id="boat-services">
-        <div class="boat-container">
-            <div class="section-title">
-                <h2>บริการเรือของเรา</h2>
-            </div>
-            <div class="boat-grid">
-                <!-- เรือยอชท์ -->
-                <div class="boat-card">
-                    <div class="boat-img">
-                        <img src="รย.jpg" alt="เรือยอชท์">
-                    </div>
-                    <div class="boat-content">
-                        <h3>เรือยอชท์</h3>
-                        <p>บริการเช่าเรือยอชท์สุดหรู พร้อมลูกเรือมืออาชีพ สำหรับการเดินทางทะเลส่วนตัว</p>
-                        <div class="boat-price">เริ่มต้น 25,000 บาท/วัน</div>
-                        <a href="#boat-detail" class="boat-btn">ดูรายละเอียด</a>
-                    </div>
-                </div>
-                <!-- เรือใบ -->
-                <div class="boat-card">
-                    <div class="boat-img">
-                        <img src="รบ.jpg" alt="เรือใบ">
-                    </div>
-                    <div class="boat-content">
-                        <h3>เรือใบ</h3>
-                        <p>สัมผัสประสบการณ์การแล่นเรือใบสุดโรแมนติก ในบรรยากาศแบบสุดพิเศษ</p>
-                        <div class="boat-price">เริ่มต้น 15,000 บาท/วัน</div>
-                        <a href="#boat-detail" class="boat-btn">ดูรายละเอียด</a>
-                    </div>
-                </div>
-                <!-- สปีดโบ๊ท -->
-                <div class="boat-card">
-                    <div class="boat-img">
-                        <img src="รร.jpg" alt="สปีดโบ๊ท">
-                    </div>
-                    <div class="boat-content">
-                        <h3>สปีดโบ๊ท</h3>
-                        <p>เรือสปีดโบ๊ทความเร็วสูง สำหรับการเดินทางทะเลอย่างรวดเร็วและตื่นเต้น</p>
-                        <div class="boat-price">เริ่มต้น 8,000 บาท/วัน</div>
-                        <a href="#boat-detail" class="boat-btn">ดูรายละเอียด</a>
-                    </div>
-                </div>
-            </div>
+      <!-- VIP Van -->
+      <div class="category-card" data-type="vip">
+        <div class="category-img">
+          <img src="มาเจสแต่ง.png" alt="รถตู้ VIP">
         </div>
-    </section>
+        <div class="category-content">
+          <h3
+            data-th="รถตู้ VIP"
+            data-en="VIP Van"
+            data-zh="VIP 面包车"
+            data-ja="VIPバン"
+            data-ko="VIP 밴"
+            data-ru="VIP микроавтобус"
+          >รถตู้ VIP</h3>
+          <p
+            data-th="รถตู้ระดับพรีเมี่ยม เน้นความสะดวกสบายและความเป็นส่วนตัว"
+            data-en="Premium vans emphasizing comfort and privacy"
+            data-zh="豪华面包车，强调舒适和私密性"
+            data-ja="快適さとプライバシーを重視したプレミアムバン"
+            data-ko="편안함과 프라이버시를 강조한 프리미엄 밴"
+            data-ru="Премиум микроавтобусы, ориентированные на комфорт и приватность"
+          >รถตู้ระดับพรีเมี่ยม เน้นความสะดวกสบายและความเป็นส่วนตัว</p>
+          <a href="#vip-detail" class="view-more"
+             data-th="ดูรายละเอียด"
+             data-en="View Details"
+             data-zh="查看详情"
+             data-ja="詳細を見る"
+             data-ko="자세히 보기"
+             data-ru="Подробнее"
+          >ดูรายละเอียด</a>
+        </div>
+      </div>
 
-    <!-- Boat Detail Page (รายละเอียดเรือ) -->
-    <section class="car-detail-page" id="boat-detail">
-        <div class="detail-header">
-            <!-- รูปเรือ -->
-            <div class="detail-images">
-                <!-- รูปใหญ่ -->
-                <img src="รยใหม่.png"
-                     alt="เรือยอชท์" />
-                <!-- รูปย่อย -->
-                <img src="รบ.jpg"
-                     alt="เรือใบ" />
-                <img src="รร.jpg"
-                     alt="สปีดโบ๊ท" />
-            </div>
-            <!-- ข้อมูลเรือสรุป -->
-            <div class="detail-info">
-                <h2>เรือยอชท์สุดหรู</h2>
-                <div class="detail-price">25,000 - 80,000 บาท/วัน</div>
-                <div class="detail-specs">
-                    <!-- ประเภท -->
-                    <div class="spec-item">
-                        <i class="fas fa-ship"></i>
-                        <div>
-                            <h4>ประเภท</h4>
-                            <p>Yacht (ยอชท์)</p>
-                        </div>
-                    </div>
-                    <!-- ผู้โดยสาร -->
-                    <div class="spec-item">
-                        <i class="fas fa-users"></i>
-                        <div>
-                            <h4>จำนวนผู้โดยสาร</h4>
-                            <p>8 - 12 คน</p>
-                        </div>
-                    </div>
-                 
-                    <!-- เครื่องยนต์ -->
-                    <div class="spec-item">
-                        <i class="fas fa-gas-pump"></i>
-                        <div>
-                            <h4>เครื่องยนต์</h4>
-                            <p>ดีเซล 2 เครื่อง</p>
-                        </div>
-                    </div>
-                  
-                    <!-- ห้องพัก -->
-                    <div class="spec-item">
-                        <i class="fas fa-bed"></i>
-                        <div>
-                            <h4>ห้องพัก</h4>
-                            <p>2 ห้อง</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- ปุ่มกลับหน้าหลัก & จองเรือ -->
-                <div class="book-section">
-                    <button class="back-btn"><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
-                    <button class="book-btn"><i class="fas fa-calendar-check"></i> จองเรือตอนนี้</button>
-                </div>
-            </div>
+      <!-- Alphard -->
+      <div class="category-card" data-type="alphard">
+        <div class="category-img">
+          <img src="Alphard.png" alt="รถ Alphard">
         </div>
-        <!-- รายละเอียดเรือ -->
-        <div class="detail-description">
-            <h3>รายละเอียดเรือยอชท์สุดหรู</h3>
-            <p>ยอชท์ส่วนตัวขนาด 30 ฟุต ตกแต่งด้วยวัสดุคุณภาพสูง ภายในประกอบด้วย 2 ห้องนอนใหญ่ พร้อมห้องน้ำในตัว 
-               พื้นที่ภายนอกกว้างขวาง มีโซนรับประทานอาหาร และโซนดาดฟ้าสำหรับชมวิวทะเล เหมาะสำหรับครอบครัวหรือกลุ่มเพื่อน 
-               ที่ต้องการเที่ยวทางทะเลอย่างส่วนตัวและพรีเมียม</p>
-            <p>เครื่องยนต์ดีเซลคู่ ให้กำลังรวม 800 แรงม้า เรือลำนี้สามารถแล่นได้ถึง 30 นอต 
-               พร้อมระบบ GPS นำทางบนเรือ ระบบเสียงรอบทิศทาง และ Wi-Fi ความเร็วสูง 
-               ลูกเรือมีประสบการณ์สูงพร้อมดูแลด้านความปลอดภัยตลอดการเดินทาง</p>
-            <p>รุ่นยอดนิยม: Sunseeker Predator 30, Azimut 32, Princess V40</p>
-            <p>หากคุณต้องการรุ่นอื่นหรือเรื่อยอชท์ขนาดต่างๆเพิ่มเติม สามารถติดต่อสอบถามเราได้
-        </p>
+        <div class="category-content">
+          <h3
+            data-th="รถ Alphard"
+            data-en="Alphard"
+            data-zh="阿尔法"
+            data-ja="アルファード"
+            data-ko="알파드"
+            data-ru="Альфард"
+          >รถ Alphard</h3>
+          <p
+            data-th="รถยนต์หรูระดับไฮเอนด์ พร้อมความสะดวกสบายสูงสุด"
+            data-en="High-end luxury vehicle with ultimate comfort"
+            data-zh="高端豪华车型，提供极致舒适"
+            data-ja="最高級の快適さを備えた高級車"
+            data-ko="최고급 편안함을 제공하는 하이엔드 럭셔리 차량"
+            data-ru="Роскошный автомобиль премиум-класса с максимальным комфортом"
+          >รถยนต์หรูระดับไฮเอนด์ พร้อมความสะดวกสบายสูงสุด</p>
+          <a href="#alphard-detail" class="view-more"
+             data-th="ดูรายละเอียด"
+             data-en="View Details"
+             data-zh="查看详情"
+             data-ja="詳細を見る"
+             data-ko="자세히 보기"
+             data-ru="Подробнее"
+          >ดูรายละเอียด</a>
         </div>
-        <!-- ฟีเจอร์พิเศษของเรือ -->
-        <div class="features-section">
-            <h3>ฟีเจอร์พิเศษ</h3>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <i class="fas fa-wifi"></i>
-                    <p>Wi-Fi ความเร็วสูง</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-camera"></i>
-                    <p>กล้องวงจรปิดรอบลำ</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-life-ring"></i>
-                    <p>อุปกรณ์ช่วยชีวิตครบครัน</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-tv"></i>
-                    <p>ทีวีจอแบนพร้อมระบบโฮมเธียเตอร์</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-snowflake"></i>
-                    <p>เครื่องปรับอากาศภายในห้องพัก</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-golf-ball"></i>
-                    <p>อุปกรณ์กีฬาทางน้ำ (เจ็ทสกี, ดำน้ำ)</p>
-                </div>
-            </div>
+      </div>
+
+      <!-- Sedan -->
+      <div class="category-card" data-type="sedan">
+        <div class="category-img">
+          <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="รถ Sedan">
         </div>
-    </section>
+        <div class="category-content">
+          <h3
+            data-th="รถ Sedan"
+            data-en="Sedan"
+            data-zh="轿车"
+            data-ja="セダン"
+            data-ko="세단"
+            data-ru="Седан"
+          >รถ Sedan</h3>
+          <p
+            data-th="รถเก๋งหรูหรา ทรงสปอร์ต เหมาะสำหรับการเดินทางส่วนตัว"
+            data-en="Luxury sporty sedan ideal for private trips"
+            data-zh="豪华运动型轿车，适合私人出行"
+            data-ja="プライベート旅行に最適な高級スポーティセダン"
+            data-ko="개인 여행에 적합한 고급 스포츠 세단"
+            data-ru="Роскошный спортивный седан, идеально подходящий для частных поездок"
+          >รถเก๋งหรูหรา ทรงสปอร์ต เหมาะสำหรับการเดินทางส่วนตัว</p>
+          <a href="#sedan-detail" class="view-more"
+             data-th="ดูรายละเอียด"
+             data-en="View Details"
+             data-zh="查看详情"
+             data-ja="詳細を見る"
+             data-ko="자세히 보기"
+             data-ru="Подробнее"
+          >ดูรายละเอียด</a>
+        </div>
+      </div>
+
+      <!-- Bus -->
+      <div class="category-card" data-type="bus">
+        <div class="category-img">
+          <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?..." alt="รถบัส">
+        </div>
+        <div class="category-content">
+          <h3
+            data-th="รถบัส"
+            data-en="Bus"
+            data-zh="巴士"
+            data-ja="バス"
+            data-ko="버스"
+            data-ru="Автобус"
+          >รถบัส</h3>
+          <p
+            data-th="รถบัสขนาดเล็กและใหญ่ พร้อมบริการครบครันสำหรับกลุ่มท่องเที่ยว"
+            data-en="Small and large buses equipped for group tours"
+            data-zh="大小巴士，适合团体旅游"
+            data-ja="小型から大型まで、団体旅行に最適なバス"
+            data-ko="소형 및 대형 버스로 단체 여행에 최적화"
+            data-ru="Малые и большие автобусы, оборудованные для групповых туров"
+          >รถบัสขนาดเล็กและใหญ่ พร้อมบริการครบครันสำหรับกลุ่มท่องเที่ยว</p>
+          <a href="#bus-detail" class="view-more"
+             data-th="ดูรายละเอียด"
+             data-en="View Details"
+             data-zh="查看详情"
+             data-ja="詳細を見る"
+             data-ko="자세히 보기"
+             data-ru="Подробнее"
+          >ดูรายละเอียด</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Boat Services Section (บริการเรือของเรา) -->
+<section class="boat-services" id="boat-services">
+  <div class="boat-container">
+    <div class="section-title">
+      <h2
+        data-th="บริการเรือของเรา"
+        data-en="Our Boat Services"
+        data-zh="我们的船舶服务"
+        data-ja="私たちのボートサービス"
+        data-ko="보트 서비스"
+        data-ru="Наши услуги по аренде лодок"
+      >บริการเรือของเรา</h2>
+    </div>
+    <div class="boat-grid">
+
+      <!-- เรือยอชท์ -->
+      <div class="boat-card">
+        <div class="boat-img">
+          <img src="รย.jpg" alt="เรือยอชท์">
+        </div>
+        <div class="boat-content">
+          <h3
+            data-th="เรือยอชท์"
+            data-en="Yacht"
+            data-zh="游艇"
+            data-ja="ヨット"
+            data-ko="요트"
+            data-ru="Яхта"
+          >เรือยอชท์</h3>
+          <p
+            data-th="บริการเช่าเรือยอชท์สุดหรู พร้อมลูกเรือมืออาชีพ สำหรับการเดินทางทะเลส่วนตัว"
+            data-en="Luxury yacht rentals with professional crew for private sea journeys"
+            data-zh="豪华游艇租赁，配备专业船员，适合私人海上之旅"
+            data-ja="プロのクルー付きの高級ヨットレンタルで、プライベートな海上の旅を"
+            data-ko="전문 승무원이 동행하는 고급 요트 렌탈 서비스로 프라이빗한 해상 여행을 제공합니다"
+            data-ru="Аренда роскошных яхт с профессиональным экипажем для частных морских путешествий"
+          >บริการเช่าเรือยอชท์สุดหรู พร้อมลูกเรือมืออาชีพ สำหรับการเดินทางทะเลส่วนตัว</p>
+          <div class="boat-price"
+               data-th="เริ่มต้น 25,000 บาท/วัน"
+               data-en="Starting from 25,000 THB/day"
+               data-zh="起价 25,000 泰铢/天"
+               data-ja="1日あたり25,000バーツから"
+               data-ko="일일 25,000 THB부터"
+               data-ru="От 25 000 бат/день"
+          >เริ่มต้น 25,000 บาท/วัน</div>
+          <a href="#boat-detail" class="boat-btn"
+             data-th="ดูรายละเอียด"
+             data-en="View Details"
+             data-zh="查看详情"
+             data-ja="詳細を見る"
+             data-ko="자세히 보기"
+             data-ru="Подробнее"
+          >ดูรายละเอียด</a>
+        </div>
+      </div>
+
+      <!-- เรือใบ -->
+      <div class="boat-card">
+        <div class="boat-img">
+          <img src="รบ.jpg" alt="เรือใบ">
+        </div>
+        <div class="boat-content">
+          <h3
+            data-th="เรือใบ"
+            data-en="Sailboat"
+            data-zh="帆船"
+            data-ja="セイルボート"
+            data-ko="돛단배"
+            data-ru="Парусник"
+          >เรือใบ</h3>
+          <p
+            data-th="สัมผัสประสบการณ์การแล่นเรือใบสุดโรแมนติก ในบรรยากาศแบบสุดพิเศษ"
+            data-en="Experience a romantic sailboat cruise in an exclusive atmosphere"
+            data-zh="在独特氛围中体验浪漫的帆船之旅"
+            data-ja="特別な雰囲気の中でロマンチックなセイルボートクルーズを"
+            data-ko="특별한 분위기 속에서 로맨틱한 돛단배 크루즈를 경험하세요"
+            data-ru="Ощутите романтическую прогулку на паруснике в эксклюзивной атмосфере"
+          >สัมผัสประสบการณ์การแล่นเรือใบสุดโรแมนติก ในบรรยากาศแบบสุดพิเศษ</p>
+          <div class="boat-price"
+               data-th="เริ่มต้น 15,000 บาท/วัน"
+               data-en="Starting from 15,000 THB/day"
+               data-zh="起价 15,000 泰铢/天"
+               data-ja="1日あたり15,000バーツから"
+               data-ko="일일 15,000 THB부터"
+               data-ru="От 15 000 бат/день"
+          >เริ่มต้น 15,000 บาท/วัน</div>
+          <a href="#baii-detail" class="boat-btn"
+             data-th="ดูรายละเอียด"
+             data-en="View Details"
+             data-zh="查看详情"
+             data-ja="詳細を見る"
+             data-ko="자세히 보기"
+             data-ru="Подробнее"
+          >ดูรายละเอียด</a>
+        </div>
+      </div>
+
+      <!-- สปีดโบ๊ท -->
+      <div class="boat-card">
+        <div class="boat-img">
+          <img src="รรส.jpg" alt="สปีดโบ๊ท">
+        </div>
+        <div class="boat-content">
+          <h3
+            data-th="สปีดโบ๊ท"
+            data-en="Speedboat"
+            data-zh="快艇"
+            data-ja="スピードボート"
+            data-ko="스피드보트"
+            data-ru="Скоростной катер"
+          >สปีดโบ๊ท</h3>
+          <p
+            data-th="เรือสปีดโบ๊ทความเร็วสูง สำหรับการเดินทางทะเลอย่างรวดเร็วและตื่นเต้น"
+            data-en="High-speed speedboat for fast and thrilling sea travels"
+            data-zh="高速快艇，适合快速而刺激的海上旅行"
+            data-ja="高速スピードボートで、迅速かつスリリングな海の旅を"
+            data-ko="빠르고 짜릿한 해상 여행을 위한 고속 스피드보트"
+            data-ru="Высокоскоростной катер для быстрой и захватывающей морской поездки"
+          >เรือสปีดโบ๊ทความเร็วสูง สำหรับการเดินทางทะเลอย่างรวดเร็วและตื่นเต้น</p>
+          <div class="boat-price"
+               data-th="เริ่มต้น 8,000 บาท/วัน"
+               data-en="Starting from 8,000 THB/day"
+               data-zh="起价 8,000 泰铢/天"
+               data-ja="1日あたり8,000バーツから"
+               data-ko="일일 8,000 THB부터"
+               data-ru="От 8 000 бат/день"
+          >เริ่มต้น 8,000 บาท/วัน</div>
+          <a href="#boat-detail" class="boat-btn"
+             data-th="ดูรายละเอียด"
+             data-en="View Details"
+             data-zh="查看详情"
+             data-ja="詳細を見る"
+             data-ko="자세히 보기"
+             data-ru="Подробнее"
+          >ดูรายละเอียด</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Boat Detail Page (รายละเอียดเรือยอชท์) -->
+<section class="car-detail-page" id="boat-detail">
+  <div class="detail-header">
+    <!-- รูปเรือ -->
+    <div class="detail-images">
+      <img src="รยส.png" alt="เรือยอชท์" />
+      <img src="ในรบ1.jpg" alt="เรือใบ" />
+      <img src="รรใหม่า.png" alt="สปีดโบ๊ท" />
+    </div>
+    <div class="detail-info">
+      <h2
+        data-th="เรือยอชท์สุดหรู"
+        data-en="Luxury Yacht"
+        data-zh="豪华游艇"
+        data-ja="高級ヨット"
+        data-ko="럭셔리 요트"
+        data-ru="Роскошная яхта"
+      >เรือยอชท์สุดหรู</h2>
+      <div class="detail-price"
+           data-th="25,000 - 80,000 บาท/วัน"
+           data-en="25,000 - 80,000 THB/day"
+           data-zh="25,000 - 80,000 泰铢/天"
+           data-ja="1日あたり25,000〜80,000バーツ"
+           data-ko="일일 25,000~80,000 THB"
+           data-ru="25 000–80 000 бат/день"
+      >25,000 - 80,000 บาท/วัน</div>
+      <div class="detail-specs">
+        <!-- ประเภท -->
+        <div class="spec-item">
+          <i class="fas fa-ship"></i>
+          <div>
+            <h4
+              data-th="ประเภท"
+              data-en="Type"
+              data-zh="类型"
+              data-ja="種別"
+              data-ko="유형"
+              data-ru="Тип"
+            >ประเภท</h4>
+            <p
+              data-th="Yacht (ยอชท์)"
+              data-en="Yacht"
+              data-zh="游艇"
+              data-ja="ヨット"
+              data-ko="요트"
+              data-ru="Яхта"
+            >Yacht (ยอชท์)</p>
+          </div>
+        </div>
+        <!-- ผู้โดยสาร -->
+        <div class="spec-item">
+          <i class="fas fa-users"></i>
+          <div>
+            <h4
+              data-th="จำนวนผู้โดยสาร"
+              data-en="Passengers"
+              data-zh="乘客人数"
+              data-ja="乗客数"
+              data-ko="승객 수"
+              data-ru="Пассажиры"
+            >จำนวนผู้โดยสาร</h4>
+            <p data-th="8 - 12 คน"
+               data-en="8 - 12 people"
+               data-zh="8 - 12 人"
+               data-ja="8〜12人"
+               data-ko="8-12명"
+               data-ru="8–12 чел"
+            >8 - 12 คน</p>
+          </div>
+        </div>
+        <!-- เครื่องยนต์ -->
+        <div class="spec-item">
+          <i class="fas fa-gas-pump"></i>
+          <div>
+            <h4
+              data-th="เครื่องยนต์"
+              data-en="Engine"
+              data-zh="引擎"
+              data-ja="エンジン"
+              data-ko="엔진"
+              data-ru="Двигатель"
+            >เครื่องยนต์</h4>
+            <p data-th="ดีเซล 2 เครื่อง"
+               data-en="Twin diesel engines"
+               data-zh="双柴油发动机"
+               data-ja="ツインディーゼルエンジン"
+               data-ko="트윈 디젤 엔진"
+               data-ru="Два дизельных двигателя"
+            >ดีเซล 2 เครื่อง</p>
+          </div>
+        </div>
+        <!-- ห้องพัก -->
+        <div class="spec-item">
+          <i class="fas fa-bed"></i>
+          <div>
+            <h4
+              data-th="ห้องพัก"
+              data-en="Cabins"
+              data-zh="舱室"
+              data-ja="キャビン"
+              data-ko="객실"
+              data-ru="Каюты"
+            >ห้องพัก</h4>
+            <p data-th="2 ห้อง"
+               data-en="2 cabins"
+               data-zh="2 舱"
+               data-ja="2キャビン"
+               data-ko="2개 객실"
+               data-ru="2 каюты"
+            >2 ห้อง</p>
+          </div>
+        </div>
+      </div>
+      <div class="book-section">
+        <button class="back-btn"
+                data-th="กลับหน้าหลัก"
+                data-en="Back to Home"
+                data-zh="返回首页"
+                data-ja="ホームに戻る"
+                data-ko="홈으로 돌아가기"
+                data-ru="На главную"
+        ><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
+        <button class="book-btn"
+                data-th="จองเรือตอนนี้"
+                data-en="Book Now"
+                data-zh="立即预定"
+                data-ja="今すぐ予約"
+                data-ko="지금 예약"
+                data-ru="Забронировать сейчас"
+        ><i class="fas fa-calendar-check"></i> จองเรือตอนนี้</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-description">
+    <h3
+      data-th="รายละเอียดเรือยอชท์สุดหรู"
+      data-en="Luxury Yacht Details"
+      data-zh="豪华游艇详情"
+      data-ja="高級ヨットの詳細"
+      data-ko="럭셔리 요트 세부 사항"
+      data-ru="Детали роскошной яхты"
+    >รายละเอียดเรือยอชท์สุดหรู</h3>
+    <p
+      data-th="ยอชท์ส่วนตัวขนาด 30 ฟุต ตกแต่งด้วยวัสดุคุณภาพสูง ภายในประกอบด้วย 2 ห้องนอนใหญ่ พร้อมห้องน้ำในตัว..."
+      data-en="A 30-foot private yacht finished with premium materials, featuring 2 large en-suite cabins..."
+      data-zh="30 英尺私家游艇，采用高档材料，设有2间带浴室的大型客舱..."
+      data-ja="30フィートのプライベートヨットは高級素材を使用し、2つの大型エンスイートキャビンを備えています..."
+      data-ko="30피트 개인 요트로 고급 자재로 마감되었으며, 대형 전용 욕실이 있는 2개의 캐빈이 있습니다..."
+      data-ru="30-футовая частная яхта, отделанная премиальными материалами, с 2 просторными каютами с санузлами..."
+    >ยอชท์ส่วนตัวขนาด 30 ฟุต ตกแต่งด้วยวัสดุคุณภาพสูง ภายในประกอบด้วย 2 ห้องนอนใหญ่ พร้อมห้องน้ำในตัว...</p>
+    <!-- (ใส่ data-... ของย่อหน้าต่อไปในลักษณะเดียวกัน) -->
+  </div>
+
+  <div class="features-section">
+    <h3
+      data-th="ฟีเจอร์พิเศษ"
+      data-en="Special Features"
+      data-zh="特色功能"
+      data-ja="特別機能"
+      data-ko="특별 기능"
+      data-ru="Особые функции"
+    >ฟีเจอร์พิเศษ</h3>
+    <div class="features-grid">
+      <div class="feature-item">
+        <i class="fas fa-wifi"></i>
+        <p
+          data-th="Wi-Fi ความเร็วสูง"
+          data-en="High-speed Wi-Fi"
+          data-zh="高速Wi-Fi"
+          data-ja="高速Wi-Fi"
+          data-ko="고속 Wi-Fi"
+          data-ru="Высокоскоростной Wi-Fi"
+        >Wi-Fi ความเร็วสูง</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-camera"></i>
+        <p
+          data-th="กล้องวงจรปิดรอบลำ"
+          data-en="Onboard CCTV"
+          data-zh="船上闭路电视"
+          data-ja="船上CCTV"
+          data-ko="선상 CCTV"
+          data-ru="Камеры видеонаблюдения на борту"
+        >กล้องวงจรปิดรอบลำ</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-life-ring"></i>
+        <p
+          data-th="อุปกรณ์ช่วยชีวิตครบครัน"
+          data-en="Complete life-saving equipment"
+          data-zh="全套救生设备"
+          data-ja="完備された救命設備"
+          data-ko="완비된 구명 설비"
+          data-ru="Полное спасательное оборудование"
+        >อุปกรณ์ช่วยชีวิตครบครัน</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-tv"></i>
+        <p
+          data-th="ทีวีจอแบนพร้อมระบบโฮมเธียเตอร์"
+          data-en="Flat-screen TV with home theater"
+          data-zh="平板电视带家庭影院系统"
+          data-ja="ホームシアター付き薄型テレビ"
+          data-ko="홈시어터 시스템이 있는 평면 TV"
+          data-ru="Плоский телевизор с домашним кинотеатром"
+        >ทีวีจอแบนพร้อมระบบโฮมเธียเตอร์</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-snowflake"></i>
+        <p
+          data-th="เครื่องปรับอากาศภายในห้องพัก"
+          data-en="Air conditioning in cabins"
+          data-zh="舱室内空调"
+          data-ja="キャビン内エアコン"
+          data-ko="캐빈 내 에어컨"
+          data-ru="Кондиционер в каютах"
+        >เครื่องปรับอากาศภายในห้องพัก</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-golf-ball"></i>
+        <p
+          data-th="อุปกรณ์กีฬาทางน้ำ (เจ็ทสกี, ดำน้ำ)"
+          data-en="Water sports gear (jet ski, diving)"
+          data-zh="水上运动装备（摩托艇、潜水）"
+          data-ja="マリンスポーツ用具（ジェットスキー、ダイビング）"
+          data-ko="수상 스포츠 장비(제트스키, 다이빙)"
+          data-ru="Экипировка для водных видов спорта (гидроцикл, дайвинг)"
+        >อุปกรณ์กีฬาทางน้ำ (เจ็ทสกี, ดำน้ำ)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- Car Detail Pages -->
     <!-- SUV Detail Page -->
     <section class="car-detail-page" id="suv-detail">
-        <div class="detail-header">
-            <div class="detail-images">
-                <img src="toyoo.avif" alt="Toyota Fortuner">
-                <img src="honda.png" alt="SUV Interior">
-                <img src="ford.webp" alt="SUV Side View">
-            </div>
-            <div class="detail-info">
-                <h2>รถ SUV</h2>
-                <div class="detail-price">3,500 - 10,000 บาท/วัน</div>
-                <div class="detail-specs">
-                    <div class="spec-item">
-                        <i class="fas fa-car"></i>
-                        <div>
-                            <h4>ประเภท</h4>
-                            <p>SUV</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-users"></i>
-                        <div>
-                            <h4>จำนวนผู้โดยสาร</h4>
-                            <p>5-7 ที่นั่ง</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-gas-pump"></i>
-                        <div>
-                            <h4>เชื้อเพลิง</h4>
-                            <p>ดีเซล - เบนซิน</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-cogs"></i>
-                        <div>
-                            <h4>เกียร์</h4>
-                            <p>อัตโนมัติ - แมนนวล</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-road"></i>
-                        <div>
-                            <h4>ระบบขับเคลื่อน</h4>
-                            <p>2WD / 4WD</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-suitcase"></i>
-                        <div>
-                            <h4>พื้นที่สัมภาระ</h4>
-                            <p>500 - 800 ลิตร</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="book-section">
-                    <button class="back-btn"><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
-                    <button class="book-btn"><i class="fas fa-calendar-check"></i> จองรถตอนนี้</button>
-                </div>
-            </div>
+  <div class="detail-header">
+    <div class="detail-images">
+      <img src="toyoo.avif"
+           alt="Toyota Fortuner">
+      <img src="honda.png"
+           alt="SUV Interior">
+      <img src="ford.webp"
+           alt="SUV Side View">
+    </div>
+    <div class="detail-info">
+      <h2
+        data-th="รถ SUV"
+        data-en="SUV"
+        data-zh="SUV 车型"
+        data-ja="SUV"
+        data-ko="SUV"
+        data-ru="Внедорожник"
+      >รถ SUV</h2>
+      <div class="detail-price"
+           data-th="3,500 - 10,000 บาท/วัน"
+           data-en="3,500 – 10,000 THB/day"
+           data-zh="3,500 – 10,000 泰铢/天"
+           data-ja="1日3,500～10,000バーツ"
+           data-ko="일일 3,500 – 10,000 THB"
+           data-ru="3 500 – 10 000 бат/день"
+      >3,500 - 10,000 บาท/วัน</div>
+      <div class="detail-specs">
+        <div class="spec-item">
+          <i class="fas fa-car"></i>
+          <div>
+            <h4
+              data-th="ประเภท"
+              data-en="Type"
+              data-zh="类型"
+              data-ja="種類"
+              data-ko="유형"
+              data-ru="Тип"
+            >ประเภท</h4>
+            <p
+              data-th="SUV"
+              data-en="SUV"
+              data-zh="SUV"
+              data-ja="SUV"
+              data-ko="SUV"
+              data-ru="Внедорожник"
+            >SUV</p>
+          </div>
         </div>
-        <div class="detail-description">
-            <h3>รายละเอียดรถ SUV</h3>
-            <p>รถ SUV หรูหรา 5-7 ที่นั่ง พร้อมสมรรถนะครบครัน ระบบขับเคลื่อน 4WD เอนกประสงค์ เหมาะสำหรับการเดินทางท่องเที่ยวทั้งในเมืองและต่างจังหวัด รถ SUV ของเรามีให้เลือกหลากหลายรุ่น ตั้งแต่รุ่นมาตรฐานไปจนถึงรุ่นพรีเมียม พร้อมฟีเจอร์ครบครัน</p>
-            <p>ภายในห้องโดยสารตกแต่งอย่างหรูหราด้วยวัสดุคุณภาพสูง เบาะหนังแท้ พร้อมระบบความบันเทิงครบครัน หน้าจอสัมผัสขนาด 9 นิ้ว ระบบ Apple CarPlay และ Android Auto ปลอดภัยด้วยระบบความปลอดภัยครบวงจร พร้อมฟีเจอร์ช่วยเหลือผู้ขับขี่มากมาย</p>
-            <p>เรามีรถ SUV ให้เลือกหลากหลายรุ่น ทั้ง Toyota Fortuner, Honda CR-V, Mazda CX-5, Mitsubishi Pajero Sport และรุ่นหรูอย่าง Mercedes-Benz GLE, BMW X5 และ Porsche Cayenne</p>
+        <div class="spec-item">
+          <i class="fas fa-users"></i>
+          <div>
+            <h4
+              data-th="จำนวนผู้โดยสาร"
+              data-en="Passengers"
+              data-zh="乘客人数"
+              data-ja="乗客数"
+              data-ko="승객 수"
+              data-ru="Пассажиры"
+            >จำนวนผู้โดยสาร</h4>
+            <p
+              data-th="5–7 ที่นั่ง"
+              data-en="5–7 seats"
+              data-zh="5–7 座"
+              data-ja="5～7席"
+              data-ko="5–7석"
+              data-ru="5–7 мест"
+            >5-7 ที่นั่ง</p>
+          </div>
         </div>
-        <div class="features-section">
-            <h3>ฟีเจอร์พิเศษ</h3>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <i class="fas fa-snowflake"></i>
-                    <p>ระบบปรับอากาศแบบ 2 โซน</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <p>ระบบความปลอดภัยครบวงจร</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <p>ระบบนำทาง GPS</p>
-                </div>
-                
-                <div class="feature-item">
-                    <i class="fas fa-car-battery"></i>
-                    <p>ระบบสตาร์ทรถด้วยปุ่มกด</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-camera"></i>
-                    <p>กล้องถอยหลังและรอบคัน</p>
-                </div>
-            </div>
+        <div class="spec-item">
+          <i class="fas fa-gas-pump"></i>
+          <div>
+            <h4
+              data-th="เชื้อเพลิง"
+              data-en="Fuel"
+              data-zh="燃料"
+              data-ja="燃料"
+              data-ko="연료"
+              data-ru="Топливо"
+            >เชื้อเพลิง</h4>
+            <p
+              data-th="ดีเซล – เบนซิน"
+              data-en="Diesel – Petrol"
+              data-zh="柴油 – 汽油"
+              data-ja="ディーゼル – ガソリン"
+              data-ko="디젤 – 휘발유"
+              data-ru="Дизель – бензин"
+            >ดีเซล - เบนซิน</p>
+          </div>
         </div>
-    </section>
+        <div class="spec-item">
+          <i class="fas fa-cogs"></i>
+          <div>
+            <h4
+              data-th="เกียร์"
+              data-en="Transmission"
+              data-zh="变速箱"
+              data-ja="トランスミッション"
+              data-ko="변속기"
+              data-ru="Коробка передач"
+            >เกียร์</h4>
+            <p
+              data-th="อัตโนมัติ – แมนนวล"
+              data-en="Auto – Manual"
+              data-zh="自动 – 手动"
+              data-ja="オートマ – マニュアル"
+              data-ko="자동 – 수동"
+              data-ru="Авто – Механика"
+            >อัตโนมัติ - แมนนวล</p>
+          </div>
+        </div>
+        <div class="spec-item">
+          <i class="fas fa-road"></i>
+          <div>
+            <h4
+              data-th="ระบบขับเคลื่อน"
+              data-en="Drive"
+              data-zh="驱动"
+              data-ja="駆動"
+              data-ko="구동"
+              data-ru="Привод"
+            >ระบบขับเคลื่อน</h4>
+            <p
+              data-th="2WD / 4WD"
+              data-en="2WD / 4WD"
+              data-zh="2驱 / 4驱"
+              data-ja="2WD / 4WD"
+              data-ko="2WD / 4WD"
+              data-ru="2WD / 4WD"
+            >2WD / 4WD</p>
+          </div>
+        </div>
+        <div class="spec-item">
+          <i class="fas fa-suitcase"></i>
+          <div>
+            <h4
+              data-th="พื้นที่สัมภาระ"
+              data-en="Luggage"
+              data-zh="行李空间"
+              data-ja="荷物スペース"
+              data-ko="수하물 공간"
+              data-ru="Багаж"
+            >พื้นที่สัมภาระ</h4>
+            <p
+              data-th="500 – 800 ลิตร"
+              data-en="500–800 L"
+              data-zh="500–800 升"
+              data-ja="500～800リットル"
+              data-ko="500–800리터"
+              data-ru="500–800 л"
+            >500 - 800 ลิตร</p>
+          </div>
+        </div>
+      </div>
 
+      <div class="book-section">
+        <button class="back-btn"
+                data-th="กลับหน้าหลัก"
+                data-en="Back to Home"
+                data-zh="返回首页"
+                data-ja="ホームに戻る"
+                data-ko="홈으로 돌아가기"
+                data-ru="На главную"
+        ><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
+        <button class="book-btn"
+                data-th="จองรถตอนนี้"
+                data-en="Book Now"
+                data-zh="立即预订"
+                data-ja="今すぐ予約"
+                data-ko="지금 예약"
+                data-ru="Забронировать"
+        ><i class="fas fa-calendar-check"></i> จองรถตอนนี้</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-description">
+    <h3
+      data-th="รายละเอียดรถ SUV"
+      data-en="SUV Details"
+      data-zh="SUV 详情"
+      data-ja="SUVの詳細"
+      data-ko="SUV 상세"
+      data-ru="Подробнее о внедорожнике"
+    >รายละเอียดรถ SUV</h3>
+    <p
+      data-th="รถ SUV หรูหรา 5-7 ที่นั่ง พร้อมสมรรถนะครบครัน ระบบขับเคลื่อน 4WD เอนกประสงค์ เหมาะสำหรับการเดินทางทั้งในเมืองและต่างจังหวัด"
+      data-en="Luxury 5–7 seat SUVs with complete performance, 4WD system, ideal for both city and countryside travel."
+      data-zh="豪华5–7座SUV，性能全面，4驱系统，适合城市及乡村出行。"
+      data-ja="5～7人乗りの高級SUV、4WDシステムを完備し、市内外の旅行に最適です。"
+      data-ko="5–7인승 고급 SUV, 완벽한 성능과 4WD 시스템으로 도심과 교외 여행 모두에 이상적입니다."
+      data-ru="Роскошные внедорожники на 5–7 мест с полным набором функций и 4WD, идеальны как для города, так и для загородных поездок."
+    >รถ SUV หรูหรา 5-7 ที่นั่ง พร้อมสมรรถนะครบครัน ระบบขับเคลื่อน 4WD เอนกประสงค์ เหมาะสำหรับการเดินทางท่องเที่ยวทั้งในเมืองและต่างจังหวัด</p>
+    <p
+      data-th="ภายในตกแต่งหรูหราด้วยวัสดุคุณภาพสูง เบาะหนังแท้ พร้อมระบบความบันเทิงครบครัน หน้าจอสัมผัส 9 นิ้ว รองรับ Apple CarPlay และ Android Auto"
+      data-en="Interior finished in premium materials, genuine leather seats, full infotainment, 9-inch touchscreen, supporting Apple CarPlay and Android Auto."
+      data-zh="内饰采用高档材料，真皮座椅，完整娱乐系统，9英寸触控屏，支持Apple CarPlay和Android Auto。"
+      data-ja="内装は高級素材、本革シート、充実のインフォテインメント、9インチタッチスクリーンを備え、Apple CarPlayやAndroid Auto対応。"
+      data-ko="고급 소재 인테리어, 천연 가죽 시트, 완벽한 인포테인먼트 시스템, 9인치 터치스크린, Apple CarPlay 및 Android Auto 지원."
+      data-ru="Интерьер из премиальных материалов, кожаные сиденья, мультимедиа система, 9-дюймовый сенсорный экран, поддержка Apple CarPlay и Android Auto."
+    >ภายในห้องโดยสารตกแต่งอย่างหรูหราด้วยวัสดุคุณภาพสูง เบาะหนังแท้ พร้อมระบบความบันเทิงครบครัน หน้าจอสัมผัสขนาด 9 นิ้ว ระบบ Apple CarPlay และ Android Auto ปลอดภัยด้วยระบบความปลอดภัยครบวงจร พร้อมฟีเจอร์ช่วยเหลือผู้ขับขี่มากมาย</p>
+    <p
+      data-th="รุ่นยอดนิยม: Toyota Fortuner, Honda CR-V, Mazda CX-5, Mitsubishi Pajero Sport, Mercedes-Benz GLE, BMW X5, Porsche Cayenne"
+      data-en="Popular models: Toyota Fortuner, Honda CR-V, Mazda CX-5, Mitsubishi Pajero Sport, Mercedes-Benz GLE, BMW X5, Porsche Cayenne."
+      data-zh="热门车型：Toyota Fortuner、Honda CR-V、Mazda CX-5、Mitsubishi Pajero Sport、Mercedes-Benz GLE、BMW X5、Porsche Cayenne。"
+      data-ja="人気モデル：Toyota Fortuner、Honda CR-V、Mazda CX-5、Mitsubishi Pajero Sport、Mercedes-Benz GLE、BMW X5、Porsche Cayenne。"
+      data-ko="인기 모델: Toyota Fortuner, Honda CR-V, Mazda CX-5, Mitsubishi Pajero Sport, Mercedes-Benz GLE, BMW X5, Porsche Cayenne."
+      data-ru="Популярные модели: Toyota Fortuner, Honda CR-V, Mazda CX-5, Mitsubishi Pajero Sport, Mercedes-Benz GLE, BMW X5, Porsche Cayenne."
+    >เรามีรถ SUV ให้เลือกหลากหลายรุ่น ทั้ง Toyota Fortuner, Honda CR-V, Mazda CX-5, Mitsubishi Pajero Sport และรุ่นหรูอย่าง Mercedes-Benz GLE, BMW X5 และ Porsche Cayenne</p>
+  </div>
+
+  <div class="features-section">
+    <h3
+      data-th="ฟีเจอร์พิเศษ"
+      data-en="Special Features"
+      data-zh="特色功能"
+      data-ja="特別機能"
+      data-ko="특별 기능"
+      data-ru="Особые функции"
+    >ฟีเจอร์พิเศษ</h3>
+    <div class="features-grid">
+      <div class="feature-item">
+        <i class="fas fa-snowflake"></i>
+        <p
+          data-th="ระบบปรับอากาศแบบ 2 โซน"
+          data-en="Dual-zone AC"
+          data-zh="双区空调"
+          data-ja="デュアルゾーンAC"
+          data-ko="듀얼존 에어컨"
+          data-ru="Двухзонный кондиционер"
+        >ระบบปรับอากาศแบบ 2 โซน</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-shield-alt"></i>
+        <p
+          data-th="ระบบความปลอดภัยครบวงจร"
+          data-en="Comprehensive safety"
+          data-zh="全面安全系统"
+          data-ja="包括的な安全装備"
+          data-ko="종합 안전 시스템"
+          data-ru="Полная система безопасности"
+        >ระบบความปลอดภัยครบวงจร</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-map-marked-alt"></i>
+        <p
+          data-th="ระบบนำทาง GPS"
+          data-en="GPS Navigation"
+          data-zh="GPS 导航"
+          data-ja="GPSナビゲーション"
+          data-ko="GPS 내비게이션"
+          data-ru="GPS навигация"
+        >ระบบนำทาง GPS</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-car-battery"></i>
+        <p
+          data-th="ระบบสตาร์ทรถด้วยปุ่มกด"
+          data-en="Push-button start"
+          data-zh="一键启动"
+          data-ja="プッシュボタンスタート"
+          data-ko="버튼 시동"
+          data-ru="Запуск кнопкой"
+        >ระบบสตาร์ทรถด้วยปุ่มกด</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-camera"></i>
+        <p
+          data-th="กล้องถอยหลังและรอบคัน"
+          data-en="Rear and surround cameras"
+          data-zh="倒车及环绕摄像头"
+          data-ja="リア＆全周囲カメラ"
+          data-ko="후방 및 서라운드 카메라"
+          data-ru="Камеры заднего и кругового обзора"
+        >กล้องถอยหลังและรอบคัน</p>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- VIP Detail Page -->
-    <section class="car-detail-page" id="vip-detail">
-        <div class="detail-header">
-            <div class="detail-images">
-                <img src="https://images.unsplash.com/photo-1580274437631-8a4dcf523e94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Mercedes-Benz V-Class">
-                <img src="https://images.unsplash.com/photo-1603386329225-868f9b1f7a3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="VIP Interior">
-                <img src="https://images.unsplash.com/photo-1580274437965-9a1c0b1b0b1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="VIP Side View">
-            </div>
-            <div class="detail-info">
-                <h2>รถตู้ VIP</h2>
-                <div class="detail-price">6,000 - 15,000 บาท/วัน</div>
-                <div class="detail-specs">
-                    <div class="spec-item">
-                        <i class="fas fa-car"></i>
-                        <div>
-                            <h4>ประเภท</h4>
-                            <p>VIP Van</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-users"></i>
-                        <div>
-                            <h4>จำนวนผู้โดยสาร</h4>
-                            <p>7-10 ที่นั่ง</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-gas-pump"></i>
-                        <div>
-                            <h4>เชื้อเพลิง</h4>
-                            <p>เบนซิน - ดีเซล </p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-cogs"></i>
-                        <div>
-                            <h4>เกียร์</h4>
-                            <p>อัตโนมัติ</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-road"></i>
-                        <div>
-                            <h4>ระบบขับเคลื่อน</h4>
-                            <p>2WD</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-suitcase"></i>
-                        <div>
-                            <h4>พื้นที่สัมภาระ</h4>
-                            <p>700 - 1000 ลิตร</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="book-section">
-                    <button class="back-btn"><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
-                    <button class="book-btn"><i class="fas fa-calendar-check"></i> จองรถตอนนี้</button>
-                </div>
-            </div>
+<section class="car-detail-page" id="vip-detail">
+  <div class="detail-header">
+    <div class="detail-images">
+      <img src="benz.png" alt="Mercedes-Benz V-Class">
+      <img src="mjt.jpg" alt="VIP Interior">
+      <img src="รถตู้.png" alt="VIP Side View">
+    </div>
+    <div class="detail-info">
+      <h2
+        data-th="รถตู้ VIP"
+        data-en="VIP Van"
+        data-zh="VIP 面包车"
+        data-ja="VIPバン"
+        data-ko="VIP 밴"
+        data-ru="VIP микроавтобус"
+      >รถตู้ VIP</h2>
+      <div class="detail-price"
+           data-th="6,000 - 15,000 บาท/วัน"
+           data-en="6,000 – 15,000 THB/day"
+           data-zh="6,000 – 15,000 泰铢/天"
+           data-ja="1日6,000〜15,000バーツ"
+           data-ko="일일 6,000 – 15,000 THB"
+           data-ru="6 000 – 15 000 бат/день"
+      >6,000 - 15,000 บาท/วัน</div>
+      <div class="detail-specs">
+        <div class="spec-item">
+          <i class="fas fa-car"></i>
+          <div>
+            <h4
+              data-th="ประเภท"
+              data-en="Type"
+              data-zh="类型"
+              data-ja="種類"
+              data-ko="유형"
+              data-ru="Тип"
+            >ประเภท</h4>
+            <p
+              data-th="VIP Van"
+              data-en="VIP Van"
+              data-zh="VIP面包车"
+              data-ja="VIPバン"
+              data-ko="VIP 밴"
+              data-ru="VIP микроавтобус"
+            >VIP Van</p>
+          </div>
         </div>
-        <div class="detail-description">
-            <h3>รายละเอียดรถตู้ VIP</h3>
-            <p>รถตู้ VIP ห้องโดยสารตกแต่งพรีเมี่ยม เบาะนั่งปรับเอนได้ พร้อมระบบวิดีโอและเสียงคุณภาพสูง เหมาะสำหรับกลุ่มที่ต้องการความเป็นส่วนตัวสูงสุด</p>
-            <p>ภายในห้องโดยสารติดตั้งระบบปรับอากาศอัตโนมัติ 3 โซน, ระบบเครื่องเสียงระดับพรีเมี่ยม, ม่านบังแสงทุกที่นั่ง </p>
-            <p>รุ่นยอดนิยม เช่น Toyota Commuter,  vip Mercedes-Benz V-Class, Toyota MAJESTY ,</p>
+        <div class="spec-item">
+          <i class="fas fa-users"></i>
+          <div>
+            <h4
+              data-th="จำนวนผู้โดยสาร"
+              data-en="Passengers"
+              data-zh="乘客人数"
+              data-ja="乗客数"
+              data-ko="승객 수"
+              data-ru="Пассажиры"
+            >จำนวนผู้โดยสาร</h4>
+            <p
+              data-th="7-10 ที่นั่ง"
+              data-en="7–10 seats"
+              data-zh="7–10 座"
+              data-ja="7〜10席"
+              data-ko="7–10석"
+              data-ru="7–10 мест"
+            >7-10 ที่นั่ง</p>
+          </div>
         </div>
-        <div class="features-section">
-            <h3>ฟีเจอร์พิเศษ</h3>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <i class="fas fa-snowflake"></i>
-                    <p>ระบบปรับอากาศอัตโนมัติ 3 โซน</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <p>ม่านบังแสง</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <p>ระบบนำทาง GPS</p>
-                </div>
-                
-                <div class="feature-item">
-                    <i class="fas fa-car-battery"></i>
-                    <p>ระบบสตาร์ทรถด้วยปุ่มกด</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-camera"></i>
-                    <p>กล้องมองภาพรอบคันระดับ HD</p>
-                </div>
-            </div>
+        <div class="spec-item">
+          <i class="fas fa-gas-pump"></i>
+          <div>
+            <h4
+              data-th="เชื้อเพลิง"
+              data-en="Fuel"
+              data-zh="燃料"
+              data-ja="燃料"
+              data-ko="연료"
+              data-ru="Топливо"
+            >เชื้อเพลิง</h4>
+            <p
+              data-th="เบนซิน – ดีเซล"
+              data-en="Petrol – Diesel"
+              data-zh="汽油 – 柴油"
+              data-ja="ガソリン – ディーゼル"
+              data-ko="휘발유 – 디젤"
+              data-ru="Бензин – Дизель"
+            >เบนซิน - ดีเซล</p>
+          </div>
         </div>
-    </section>
+        <div class="spec-item">
+          <i class="fas fa-cogs"></i>
+          <div>
+            <h4
+              data-th="เกียร์"
+              data-en="Transmission"
+              data-zh="变速箱"
+              data-ja="トランスミッション"
+              data-ko="변속기"
+              data-ru="Коробка передач"
+            >เกียร์</h4>
+            <p
+              data-th="อัตโนมัติ"
+              data-en="Automatic"
+              data-zh="自动"
+              data-ja="オートマチック"
+              data-ko="자동"
+              data-ru="Автомат"
+            >อัตโนมัติ</p>
+          </div>
+        </div>
+        <div class="spec-item">
+          <i class="fas fa-road"></i>
+          <div>
+            <h4
+              data-th="ระบบขับเคลื่อน"
+              data-en="Drive"
+              data-zh="驱动"
+              data-ja="駆動"
+              data-ko="구동"
+              data-ru="Привод"
+            >ระบบขับเคลื่อน</h4>
+            <p
+              data-th="2WD"
+              data-en="2WD"
+              data-zh="2驱"
+              data-ja="2WD"
+              data-ko="2WD"
+              data-ru="2WD"
+            >2WD</p>
+          </div>
+        </div>
+        <div class="spec-item">
+          <i class="fas fa-suitcase"></i>
+          <div>
+            <h4
+              data-th="พื้นที่สัมภาระ"
+              data-en="Luggage"
+              data-zh="行李空间"
+              data-ja="荷物スペース"
+              data-ko="수하물 공간"
+              data-ru="Багаж"
+            >พื้นที่สัมภาระ</h4>
+            <p
+              data-th="700 – 1,000 ลิตร"
+              data-en="700–1,000 L"
+              data-zh="700–1,000 升"
+              data-ja="700～1,000リットル"
+              data-ko="700–1,000리터"
+              data-ru="700–1 000 л"
+            >700 - 1000 ลิตร</p>
+          </div>
+        </div>
+      </div>
+      <div class="book-section">
+        <button class="back-btn"
+                data-th="กลับหน้าหลัก"
+                data-en="Back to Home"
+                data-zh="返回首页"
+                data-ja="ホームに戻る"
+                data-ko="홈으로 돌아가기"
+                data-ru="На главную"
+        ><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
+        <button class="book-btn"
+                data-th="จองรถตอนนี้"
+                data-en="Book Now"
+                data-zh="立即预订"
+                data-ja="今すぐ予約"
+                data-ko="지금 예약"
+                data-ru="Забронировать"
+        ><i class="fas fa-calendar-check"></i> จองรถตอนนี้</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-description">
+    <h3
+      data-th="รายละเอียดรถตู้ VIP"
+      data-en="VIP Van Details"
+      data-zh="VIP 面包车详情"
+      data-ja="VIPバンの詳細"
+      data-ko="VIP 밴 상세"
+      data-ru="Подробнее о VIP микроавтобусе"
+    >รายละเอียดรถตู้ VIP</h3>
+    <p
+      data-th="รถตู้ VIP ห้องโดยสารตกแต่งพรีเมี่ยม เบาะปรับเอนได้ พร้อมระบบวิดีโอและเสียงคุณภาพสูง เหมาะสำหรับกลุ่มที่ต้องการความเป็นส่วนตัวสูงสุด"
+      data-en="VIP vans with premium interior, reclining seats, high-quality video & audio—perfect for groups seeking ultimate privacy."
+      data-zh="VIP面包车配备豪华内饰、可调节座椅、高品质影音系统—适合追求极致私密性的团体。"
+      data-ja="VIPバンは高級インテリア、リクライニングシート、高品質オーディオ＆ビデオを完備し、最高のプライバシーを求めるグループに最適です。"
+      data-ko="VIP 밴은 프리미엄 인테리어, 리클라이닝 시트, 고품질 비디오 및 오디오를 갖추어 최고의 프라이버시를 원하는 그룹에 적합합니다."
+      data-ru="VIP микроавтобусы с премиальным интерьером, креслами с регулировкой наклона и высококачественным видео и аудио—идеальны для групп, ценящих приватность."
+    >รถตู้ VIP ห้องโดยสารตกแต่งพรีเมี่ยม เบาะนั่งปรับเอนได้ พร้อมระบบวิดีโอและเสียงคุณภาพสูง เหมาะสำหรับกลุ่มที่ต้องการความเป็นส่วนตัวสูงสุด</p>
+    <p
+      data-th="ภายในติดตั้งระบบปรับอากาศอัตโนมัติ 3 โซน, ระบบเสียงระดับพรีเมี่ยม, ม่านบังแสงทุกที่นั่ง"
+      data-en="Features 3-zone auto-AC, premium sound system, and window curtains at every seat."
+      data-zh="配备三区自动空调、高级音响系统和每个座位窗帘。"
+      data-ja="3ゾーンオートエアコン、高級サウンドシステム、全席カーテンを完備。"
+      data-ko="3존 자동 에어컨, 프리미엄 사운드시스템, 모든 좌석 윈도우 커튼 탑재."
+      data-ru="Оснащен 3-зонным авто-кондиционером, премиальной аудиосистемой и шторами на каждом окне."
+    >ภายในห้องโดยสารติดตั้งระบบปรับอากาศอัตโนมัติ 3 โซน, ระบบเครื่องเสียงระดับพรีเมี่ยม, ม่านบังแสงทุกที่นั่ง</p>
+    <p
+      data-th="รุ่นยอดนิยม: Toyota Commuter, Mercedes-Benz V-Class, Toyota Majesty"
+      data-en="Popular models: Toyota Commuter, Mercedes-Benz V-Class, Toyota Majesty."
+      data-zh="热门车型：Toyota Commuter、Mercedes-Benz V-Class、Toyota Majesty。"
+      data-ja="人気モデル：Toyota Commuter、Mercedes-Benz V-Class、Toyota Majesty。"
+      data-ko="인기 모델: Toyota Commuter, Mercedes-Benz V-Class, Toyota Majesty."
+      data-ru="Популярные модели: Toyota Commuter, Mercedes-Benz V-Class, Toyota Majesty."
+    >รุ่นยอดนิยม เช่น Toyota Commuter, Mercedes-Benz V-Class, Toyota MAJESTY</p>
+  </div>
+
+  <div class="features-section">
+    <h3
+      data-th="ฟีเจอร์พิเศษ"
+      data-en="Special Features"
+      data-zh="特色功能"
+      data-ja="特別機能"
+      data-ko="특별 기능"
+      data-ru="Особые функции"
+    >ฟีเจอร์พิเศษ</h3>
+    <div class="features-grid">
+      <div class="feature-item">
+        <i class="fas fa-snowflake"></i>
+        <p
+          data-th="ระบบปรับอากาศอัตโนมัติ 3 โซน"
+          data-en="3-zone auto AC"
+          data-zh="三区自动空调"
+          data-ja="3ゾーンオートエアコン"
+          data-ko="3존 자동 에어컨"
+          data-ru="3-зонный авто-кондиционер"
+        >ระบบปรับอากาศอัตโนมัติ 3 โซน</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-shield-alt"></i>
+        <p
+          data-th="ม่านบังแสง"
+          data-en="Window curtains"
+          data-zh="窗帘"
+          data-ja="カーテン"
+          data-ko="윈도우 커튼"
+          data-ru="Шторы на окнах"
+        >ม่านบังแสง</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-map-marked-alt"></i>
+        <p
+          data-th="ระบบนำทาง GPS"
+          data-en="GPS Navigation"
+          data-zh="GPS 导航"
+          data-ja="GPSナビゲーション"
+          data-ko="GPS 내비게이션"
+          data-ru="GPS навигация"
+        >ระบบนำทาง GPS</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-car-battery"></i>
+        <p
+          data-th="ระบบสตาร์ทรถด้วยปุ่มกด"
+          data-en="Push-button start"
+          data-zh="一键启动"
+          data-ja="プッシュボタンスタート"
+          data-ko="버튼 시동"
+          data-ru="Запуск кнопкой"
+        >ระบบสตาร์ทรถด้วยปุ่มกด</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-camera"></i>
+        <p
+          data-th="กล้องมองภาพรอบคันระดับ HD"
+          data-en="HD surround-view camera"
+          data-zh="高清环视摄像头"
+          data-ja="HD全周囲カメラ"
+          data-ko="HD 서라운드 뷰 카메라"
+          data-ru="HD камеры обзор вокруг"
+        >กล้องมองภาพรอบคันระดับ HD</p>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Alphard Detail Page -->
-    <section class="car-detail-page" id="alphard-detail">
-        <div class="detail-header">
-            <div class="detail-images">
-                <img src="อัลพาส มฟ.png" alt="Toyota Alphard">
-                <img src="ในออพ.webp" alt="Alphard Interior">
-                <img src="ในออพ2.webp" alt="Alphard Side View">
-            </div>
-            <div class="detail-info">
-                <h2>รถ Alphard</h2>
-                <div class="detail-price">5,000 - 13,000 บาท/วัน</div>
-                <div class="detail-specs">
-                    <div class="spec-item">
-                        <i class="fas fa-car"></i>
-                        <div>
-                            <h4>ประเภท</h4>
-                            <p>Alphard</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-users"></i>
-                        <div>
-                            <h4>จำนวนผู้โดยสาร</h4>
-                            <p>5-7 ที่นั่ง</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-gas-pump"></i>
-                        <div>
-                            <h4>เชื้อเพลิง</h4>
-                            <p>เบนซิน - แก๊สโซฮอล์</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-cogs"></i>
-                        <div>
-                            <h4>เกียร์</h4>
-                            <p>อัตโนมัติ</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-road"></i>
-                        <div>
-                            <h4>ระบบขับเคลื่อน</h4>
-                            <p>2WD</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-suitcase"></i>
-                        <div>
-                            <h4>พื้นที่สัมภาระ</h4>
-                            <p>600 - 850 ลิตร</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="book-section">
-                    <button class="back-btn"><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
-                    <button class="book-btn"><i class="fas fa-calendar-check"></i> จองรถตอนนี้</button>
-                </div>
-            </div>
+<section class="car-detail-page" id="alphard-detail">
+  <div class="detail-header">
+    <div class="detail-images">
+      <img src="hero.jpg.jpg" alt="Toyota Alphard">
+      <img src="ในออพ.webp" alt="Alphard Interior">
+      <img src="ในออพ2.webp" alt="Alphard Side View">
+    </div>
+    <div class="detail-info">
+      <h2
+        data-th="รถ Alphard"
+        data-en="Alphard"
+        data-zh="阿尔法"
+        data-ja="アルファード"
+        data-ko="알파드"
+        data-ru="Альфард"
+      >รถ Alphard</h2>
+      <div class="detail-price"
+           data-th="5,000 - 13,000 บาท/วัน"
+           data-en="5,000 – 13,000 THB/day"
+           data-zh="5,000 – 13,000 泰铢/天"
+           data-ja="1日5,000～13,000バーツ"
+           data-ko="일일 5,000 – 13,000 THB"
+           data-ru="5 000 – 13 000 бат/день"
+      >5,000 - 13,000 บาท/วัน</div>
+      <div class="detail-specs">
+        <div class="spec-item">
+          <i class="fas fa-car"></i>
+          <div>
+            <h4
+              data-th="ประเภท"
+              data-en="Type"
+              data-zh="类型"
+              data-ja="種類"
+              data-ko="유형"
+              data-ru="Тип"
+            >ประเภท</h4>
+            <p
+              data-th="Alphard"
+              data-en="Alphard"
+              data-zh="阿尔法"
+              data-ja="アルファード"
+              data-ko="알파드"
+              data-ru="Альфард"
+            >Alphard</p>
+          </div>
         </div>
-        <div class="detail-description">
-            <h3>รายละเอียดรถ Alphard</h3>
-            <p>Toyota Alphard รุ่นหรู ห้องโดยสารตกแต่งพรีเมี่ยม มีระบบปิดเสียงรบกวนภายนอก เบาะนั่งปรับเอนได้ พร้อมระบบสตาร์ทรถไร้กุญแจ เหมาะกับการเดินทางจัดงานสำคัญหรือรับรองผู้บริหาร</p>
-            <p>มีหน้าจอสำหรับผู้โดยสารตอนหลัง ระบบเครื่องเสียง BOSE รอบคัน พร้อมระบบปรับอากาศแยกซ้าย-ขวา เพิ่มความสะดวกสบายในการเดินทาง</p>
-            <p>รุ่นยอดนิยม: Toyota Alphard Executive Lounge, Toyota Alphard Premium</p>
+        <div class="spec-item">
+          <i class="fas fa-users"></i>
+          <div>
+            <h4
+              data-th="จำนวนผู้โดยสาร"
+              data-en="Passengers"
+              data-zh="乘客人数"
+              data-ja="乗客数"
+              data-ko="승객 수"
+              data-ru="Пассажиры"
+            >จำนวนผู้โดยสาร</h4>
+            <p
+              data-th="5-7 ที่นั่ง"
+              data-en="5–7 seats"
+              data-zh="5–7 座"
+              data-ja="5～7席"
+              data-ko="5–7석"
+              data-ru="5–7 мест"
+            >5-7 ที่นั่ง</p>
+          </div>
         </div>
-        <div class="features-section">
-            <h3>ฟีเจอร์พิเศษ</h3>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <i class="fas fa-snowflake"></i>
-                    <p>ระบบปรับอากาศอัตโนมัติ Dual-zone</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <p>ม่านบังแสงไฟฟ้า</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <p>ระบบนำทาง GPS</p>
-                </div>
-                
-                <div class="feature-item">
-                    <i class="fas fa-car-battery"></i>
-                    <p>ระบบสตาร์ทรถด้วยปุ่มกด</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-camera"></i>
-                    <p>กล้องมองภาพรอบคัน</p>
-                </div>
-            </div>
+        <div class="spec-item">
+          <i class="fas fa-gas-pump"></i>
+          <div>
+            <h4
+              data-th="เชื้อเพลิง"
+              data-en="Fuel"
+              data-zh="燃料"
+              data-ja="燃料"
+              data-ko="연료"
+              data-ru="Топливо"
+            >เชื้อเพลิง</h4>
+            <p
+              data-th="เบนซิน – แก๊สโซฮอล์"
+              data-en="Petrol – Gasohol"
+              data-zh="汽油 – 乙醇汽油"
+              data-ja="ガソリン – ガソホール"
+              data-ko="휘발유 – 가소올"
+              data-ru="Бензин – газohol"
+            >เบนซิน - แก๊สโซฮอล์</p>
+          </div>
         </div>
-    </section>
+        <div class="spec-item">
+          <i class="fas fa-cogs"></i>
+          <div>
+            <h4
+              data-th="เกียร์"
+              data-en="Transmission"
+              data-zh="变速箱"
+              data-ja="トランスミッション"
+              data-ko="변속기"
+              data-ru="Коробка передач"
+            >เกียร์</h4>
+            <p
+              data-th="อัตโนมัติ"
+              data-en="Automatic"
+              data-zh="自动"
+              data-ja="オートマチック"
+              data-ko="자동"
+              data-ru="Автомат"
+            >อัตโนมัติ</p>
+          </div>
+        </div>
+        <div class="spec-item">
+          <i class="fas fa-road"></i>
+          <div>
+            <h4
+              data-th="ระบบขับเคลื่อน"
+              data-en="Drive"
+              data-zh="驱动"
+              data-ja="駆動"
+              data-ko="구동"
+              data-ru="Привод"
+            >ระบบขับเคลื่อน</h4>
+            <p
+              data-th="2WD"
+              data-en="2WD"
+              data-zh="2驱"
+              data-ja="2WD"
+              data-ko="2WD"
+              data-ru="2WD"
+            >2WD</p>
+          </div>
+        </div>
+        <div class="spec-item">
+          <i class="fas fa-suitcase"></i>
+          <div>
+            <h4
+              data-th="พื้นที่สัมภาระ"
+              data-en="Luggage"
+              data-zh="行李空间"
+              data-ja="荷物スペース"
+              data-ko="수하물 공간"
+              data-ru="Багаж"
+            >พื้นที่สัมภาระ</h4>
+            <p
+              data-th="600 – 850 ลิตร"
+              data-en="600–850 L"
+              data-zh="600–850 升"
+              data-ja="600～850リットル"
+              data-ko="600–850리터"
+              data-ru="600–850 л"
+            >600 - 850 ลิตร</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-section">
+        <button class="back-btn"
+                data-th="กลับหน้าหลัก"
+                data-en="Back to Home"
+                data-zh="返回首页"
+                data-ja="ホームに戻る"
+                data-ko="홈으로 돌아가기"
+                data-ru="На главную"
+        ><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
+        <button class="book-btn"
+                data-th="จองรถตอนนี้"
+                data-en="Book Now"
+                data-zh="立即预订"
+                data-ja="今すぐ予約"
+                data-ko="지금 예약"
+                data-ru="Забронировать"
+        ><i class="fas fa-calendar-check"></i> จองรถตอนนี้</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-description">
+    <h3
+      data-th="รายละเอียดรถ Alphard"
+      data-en="Alphard Details"
+      data-zh="Alphard 详情"
+      data-ja="アルファードの詳細"
+      data-ko="알파드 상세"
+      data-ru="Подробнее об Альфарде"
+    >รายละเอียดรถ Alphard</h3>
+    <p
+      data-th="Toyota Alphard รุ่นหรู ห้องโดยสารตกแต่งพรีเมี่ยม มีระบบปิดเสียงรบกวนภายนอก เบาะปรับเอนได้ พร้อมระบบสตาร์ทรถไร้กุญแจ เหมาะสำหรับงานสำคัญหรือรับรองผู้บริหาร"
+      data-en="The luxury Toyota Alphard features premium cabin trim, noise insulation, reclining seats, and keyless start—ideal for VIP events and executive transport."
+      data-zh="豪华Toyota Alphard配备高档内饰、隔音、可调节座椅和无钥匙启动—非常适合VIP场合和行政接送。"
+      data-ja="高級なToyota Alphardはプレミアムキャビントリム、防音、リクライニングシート、キーレススタートを備え、VIPイベントやエグゼクティブ送迎に最適です。"
+      data-ko="럭셔리 Toyota Alphard는 프리미엄 캐빈 트림, 방음, 리클라이닝 시트 및 키리스 스타트를 갖추어 VIP 행사 및 임원 운송에 이상적입니다."
+      data-ru="Роскошный Toyota Alphard оснащен премиальным интерьером, шумопоглощением, откидными сиденьями и бесключевым стартом—идеален для VIP-мероприятий и перевозки руководителей."
+    >Toyota Alphard รุ่นหรู ห้องโดยสารตกแต่งพรีเมี่ยม มีระบบปิดเสียงรบกวนภายนอก เบาะนั่งปรับเอนได้ พร้อมระบบสตาร์ทรถไร้กุญแจ เหมาะกับการเดินทางจัดงานสำคัญหรือรับรองผู้บริหาร</p>
+    <p
+      data-th="มีหน้าจอผู้โดยสารตอนหลัง ระบบเสียง BOSE รอบคัน พร้อมระบบปรับอากาศแยกซ้าย-ขวา เพิ่มความสะดวกสบายสูงสุด"
+      data-en="Equipped with a rear-seat display, BOSE surround sound, and dual-zone climate control for maximum comfort."
+      data-zh="配备后座显示屏、BOSE环绕声音响和双区空调，实现最大舒适度。"
+      data-ja="後部座席用ディスプレイ、BOSEサラウンドサウンド、デュアルゾーンエアコンを装備し、最大の快適性を実現します。"
+      data-ko="후석 디스플레이, BOSE 서라운드 사운드 및 듀얼존 공조 시스템을 갖추어 최고의 편안함을 제공합니다."
+      data-ru="Оснащен дисплеем для задних пассажиров, аудиосистемой BOSE surround и двухзонным климат-контролем для максимального комфорта."
+    >มีหน้าจอสำหรับผู้โดยสารตอนหลัง ระบบเครื่องเสียง BOSE รอบคัน พร้อมระบบปรับอากาศแยกซ้าย-ขวา เพิ่มความสะดวกสบายในการเดินทาง</p>
+    <p
+      data-th="รุ่นยอดนิยม: Toyota Alphard Executive Lounge, Toyota Alphard Premium"
+      data-en="Popular models: Toyota Alphard Executive Lounge, Toyota Alphard Premium."
+      data-zh="热门型号：Toyota Alphard Executive Lounge, Toyota Alphard Premium。"
+      data-ja="人気モデル：Toyota Alphard Executive Lounge, Toyota Alphard Premium。"
+      data-ko="인기 모델: Toyota Alphard Executive Lounge, Toyota Alphard Premium."
+      data-ru="Популярные модели: Toyota Alphard Executive Lounge, Toyota Alphard Premium."
+    >รุ่นยอดนิยม: Toyota Alphard Executive Lounge, Toyota Alphard Premium</p>
+  </div>
+
+  <div class="features-section">
+    <h3
+      data-th="ฟีเจอร์พิเศษ"
+      data-en="Special Features"
+      data-zh="特色功能"
+      data-ja="特別機能"
+      data-ko="특별 기능"
+      data-ru="Особые функции"
+    >ฟีเจอร์พิเศษ</h3>
+    <div class="features-grid">
+      <div class="feature-item">
+        <i class="fas fa-snowflake"></i>
+        <p
+          data-th="ระบบปรับอากาศอัตโนมัติ Dual-zone"
+          data-en="Dual-zone auto AC"
+          data-zh="双区自动空调"
+          data-ja="デュアルゾーンオートエアコン"
+          data-ko="듀얼존 자동 에어컨"
+          data-ru="Двухзонный авто-кондиционер"
+        >ระบบปรับอากาศอัตโนมัติ Dual-zone</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-shield-alt"></i>
+        <p
+          data-th="ม่านบังแสงไฟฟ้า"
+          data-en="Electric window shades"
+          data-zh="电动窗帘"
+          data-ja="電動ウィンドウシェード"
+          data-ko="전동 윈도우 쉐이드"
+          data-ru="Электрические шторы"
+        >ม่านบังแสงไฟฟ้า</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-map-marked-alt"></i>
+        <p
+          data-th="ระบบนำทาง GPS"
+          data-en="GPS Navigation"
+          data-zh="GPS 导航"
+          data-ja="GPSナビゲーション"
+          data-ko="GPS 내비게이션"
+          data-ru="GPS навигация"
+        >ระบบนำทาง GPS</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-car-battery"></i>
+        <p
+          data-th="ระบบสตาร์ทรถด้วยปุ่มกด"
+          data-en="Push-button start"
+          data-zh="一键启动"
+          data-ja="プッシュボタンスタート"
+          data-ko="버튼 시동"
+          data-ru="Запуск кнопкой"
+        >ระบบสตาร์ทรถด้วยปุ่มกด</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-camera"></i>
+        <p
+          data-th="กล้องมองภาพรอบคัน"
+          data-en="Surround-view camera"
+          data-zh="环视摄像头"
+          data-ja="全周囲カメラ"
+          data-ko="서라운드 뷰 카메라"
+          data-ru="Камеры кругового обзора"
+        >กล้องมองภาพรอบคัน</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- Sedan Detail Page -->
-    <section class="car-detail-page" id="sedan-detail">
-        <div class="detail-header">
-            <div class="detail-images">
-                <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Mercedes-Benz E-Class">
-                <img src="ด้าคอส.jpg" alt="Sedan Interior">
-                <img src="toyotaแคม.jpg" alt="Sedan Side View">
-            </div>
-            <div class="detail-info">
-                <h2>รถ Sedan</h2>
-                <div class="detail-price">3,500 - 8,000 บาท/วัน</div>
-                <div class="detail-specs">
-                    <div class="spec-item">
-                        <i class="fas fa-car"></i>
-                        <div>
-                            <h4>ประเภท</h4>
-                            <p>Sedan</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-users"></i>
-                        <div>
-                            <h4>จำนวนผู้โดยสาร</h4>
-                            <p>3-4 ที่นั่ง</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-gas-pump"></i>
-                        <div>
-                            <h4>เชื้อเพลิง</h4>
-                            <p>เบนซิน</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-cogs"></i>
-                        <div>
-                            <h4>เกียร์</h4>
-                            <p>อัตโนมัติ</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-road"></i>
-                        <div>
-                            <h4>ระบบขับเคลื่อน</h4>
-                            <p>2WD</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-suitcase"></i>
-                        <div>
-                            <h4>พื้นที่สัมภาระ</h4>
-                            <p>450 - 550 ลิตร</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="book-section">
-                    <button class="back-btn"><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
-                    <button class="book-btn"><i class="fas fa-calendar-check"></i> จองรถตอนนี้</button>
-                </div>
-            </div>
+ <section class="car-detail-page" id="sedan-detail">
+  <div class="detail-header">
+    <div class="detail-images">
+      <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Mercedes-Benz E-Class">
+      <img src="ด้าคอส.jpg">
+      <img src="toyotaแคม.jpg" alt="Sedan Side View">
+    </div>
+    <div class="detail-info">
+      <h2
+        data-th="รถ Sedan"
+        data-en="Sedan"
+        data-zh="轿车"
+        data-ja="セダン"
+        data-ko="세단"
+        data-ru="Седан"
+      >รถ Sedan</h2>
+      <div class="detail-price"
+           data-th="3,500 - 8,000 บาท/วัน"
+           data-en="3,500 – 8,000 THB/day"
+           data-zh="3,500 – 8,000 泰铢/天"
+           data-ja="1日3,500〜8,000バーツ"
+           data-ko="일일 3,500 – 8,000 THB"
+           data-ru="3 500 – 8 000 бат/день"
+      >3,500 - 8,000 บาท/วัน</div>
+      <div class="detail-specs">
+        <div class="spec-item">
+          <i class="fas fa-car"></i>
+          <div>
+            <h4
+              data-th="ประเภท"
+              data-en="Type"
+              data-zh="类型"
+              data-ja="種類"
+              data-ko="유형"
+              data-ru="Тип"
+            >ประเภท</h4>
+            <p
+              data-th="Sedan"
+              data-en="Sedan"
+              data-zh="轿车"
+              data-ja="セダン"
+              data-ko="세단"
+              data-ru="Седан"
+            >Sedan</p>
+          </div>
         </div>
-        <div class="detail-description">
-            <h3>รายละเอียดรถ Sedan</h3>
-            <p>รถ Sedan หรูหรา ห้องโดยสารสะดวกสบาย เหมาะสำหรับการเดินทางทั้งในเมืองและต่างจังหวัด ห้องโดยสารเงียบ เบาะนั่งหุ้มหนังแท้ เพิ่มความหรูหรา</p>
-            <p>มีระบบเครื่องเสียงคุณภาพสูง หน้าจอสัมผัส พร้อมระบบต่างๆ และระบบความปลอดภัยครบครัน</p>
-            <p>รุ่นยอดนิยม เช่น TOYOTA CAMRY, HONDA ACCORD , Mercedes-Benz E-Class, BMW 5 Series, Audi A6, Lexus ES</p>
+        <div class="spec-item">
+          <i class="fas fa-users"></i>
+          <div>
+            <h4
+              data-th="จำนวนผู้โดยสาร"
+              data-en="Passengers"
+              data-zh="乘客人数"
+              data-ja="乗客数"
+              data-ko="승객 수"
+              data-ru="Пассажиры"
+            >จำนวนผู้โดยสาร</h4>
+            <p
+              data-th="3-4 ที่นั่ง"
+              data-en="3–4 seats"
+              data-zh="3–4 座"
+              data-ja="3〜4席"
+              data-ko="3–4석"
+              data-ru="3–4 мест"
+            >3-4 ที่นั่ง</p>
+          </div>
         </div>
-        <div class="features-section">
-            <h3>ฟีเจอร์พิเศษ</h3>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <i class="fas fa-snowflake"></i>
-                    <p>ระบบปรับอากาศอัตโนมัติ Dual-zone</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <p>ระบบเบรก ABS, EBD</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <p>ระบบนำทาง GPS</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-wifi"></i>
-                    <p>Bluetooth Audio</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-car-battery"></i>
-                    <p>ระบบสตาร์ทรถด้วยปุ่มกด</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-camera"></i>
-                    <p>กล้องมองหลัง HD</p>
-                </div>
-            </div>
+        <div class="spec-item">
+          <i class="fas fa-gas-pump"></i>
+          <div>
+            <h4
+              data-th="เชื้อเพลิง"
+              data-en="Fuel"
+              data-zh="燃料"
+              data-ja="燃料"
+              data-ko="연료"
+              data-ru="Топливо"
+            >เชื้อเพลิง</h4>
+            <p
+              data-th="เบนซิน"
+              data-en="Petrol"
+              data-zh="汽油"
+              data-ja="ガソリン"
+              data-ko="휘발유"
+              data-ru="Бензин"
+            >เบนซิน</p>
+          </div>
         </div>
-    </section>
+        <div class="spec-item">
+          <i class="fas fa-cogs"></i>
+          <div>
+            <h4
+              data-th="เกียร์"
+              data-en="Transmission"
+              data-zh="变速箱"
+              data-ja="トランスミッション"
+              data-ko="변속기"
+              data-ru="Коробка передач"
+            >เกียร์</h4>
+            <p
+              data-th="อัตโนมัติ"
+              data-en="Automatic"
+              data-zh="自动"
+              data-ja="オートマチック"
+              data-ko="자동"
+              data-ru="Автомат"
+            >อัตโนมัติ</p>
+          </div>
+        </div>
+        <div class="spec-item">
+          <i class="fas fa-road"></i>
+          <div>
+            <h4
+              data-th="ระบบขับเคลื่อน"
+              data-en="Drive"
+              data-zh="驱动"
+              data-ja="駆動"
+              data-ko="구동"
+              data-ru="Привод"
+            >ระบบขับเคลื่อน</h4>
+            <p
+              data-th="2WD"
+              data-en="2WD"
+              data-zh="2驱"
+              data-ja="2WD"
+              data-ko="2WD"
+              data-ru="2WD"
+            >2WD</p>
+          </div>
+        </div>
+        <div class="spec-item">
+          <i class="fas fa-suitcase"></i>
+          <div>
+            <h4
+              data-th="พื้นที่สัมภาระ"
+              data-en="Luggage"
+              data-zh="行李空间"
+              data-ja="荷物スペース"
+              data-ko="수하물 공간"
+              data-ru="Багаж"
+            >พื้นที่สัมภาระ</h4>
+            <p
+              data-th="450 - 550 ลิตร"
+              data-en="450–550 L"
+              data-zh="450–550 升"
+              data-ja="450〜550リットル"
+              data-ko="450–550리터"
+              data-ru="450–550 л"
+            >450 - 550 ลิตร</p>
+          </div>
+        </div>
+      </div>
+      <div class="book-section">
+        <button class="back-btn"
+                data-th="กลับหน้าหลัก"
+                data-en="Back to Home"
+                data-zh="返回首页"
+                data-ja="ホームに戻る"
+                data-ko="홈으로 돌아가기"
+                data-ru="На главную"
+        ><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
+        <button class="book-btn"
+                data-th="จองรถตอนนี้"
+                data-en="Book Now"
+                data-zh="立即预订"
+                data-ja="今すぐ予約"
+                data-ko="지금 예약"
+                data-ru="Забронировать"
+        ><i class="fas fa-calendar-check"></i> จองรถตอนนี้</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-description">
+    <h3
+      data-th="รายละเอียดรถ Sedan"
+      data-en="Sedan Details"
+      data-zh="轿车详情"
+      data-ja="セダンの詳細"
+      data-ko="세단 상세"
+      data-ru="Подробнее о седане"
+    >รายละเอียดรถ Sedan</h3>
+    <p
+      data-th="รถ Sedan หรูหรา ห้องโดยสารสะดวกสบาย เหมาะสำหรับการเดินทางทั้งในเมืองและต่างจังหวัด ห้องโดยสารเงียบ เบาะหนังแท้ เพิ่มความหรูหรา"
+      data-en="Luxury sedan with comfortable cabin, ideal for city and intercity travel; quiet interior with genuine leather seats."
+      data-zh="豪华轿车，舒适的驾乘空间，适合城市及城际旅行；安静内饰，真皮座椅。"
+      data-ja="高級セダン、快適なキャビンは市内外の移動に最適。静かな室内、本革シート装備。"
+      data-ko="고급 세단, 편안한 실내는 도시 및 시외 여행에 이상적입니다. 정숙한 인테리어, 천연 가죽 시트."
+      data-ru="Роскошный седан с комфортным салоном, идеален для поездок по городу и между городами; тихий интерьер с кожаными сиденьями."
+    >รถ Sedan หรูหรา ห้องโดยสารสะดวกสบาย เหมาะสำหรับการเดินทางทั้งในเมืองและต่างจังหวัด ห้องโดยสารเงียบ เบาะนั่งหุ้มหนังแท้ เพิ่มความหรูหรา</p>
+    <p
+      data-th="มีระบบเครื่องเสียงคุณภาพสูง หน้าจอสัมผัส พร้อมระบบต่างๆ และระบบความปลอดภัยครบครัน"
+      data-en="Equipped with premium audio, touchscreen display, and comprehensive safety features."
+      data-zh="配备高端音响、触控屏及全方位安全功能。"
+      data-ja="プレミアムオーディオ、タッチスクリーン、充実の安全装備を完備。"
+      data-ko="고급 오디오, 터치스크린 디스플레이 및 종합 안전 기능 탑재."
+      data-ru="Оснащен премиальной аудиосистемой, сенсорным дисплеем и полным набором систем безопасности."
+    >มีระบบเครื่องเสียงคุณภาพสูง หน้าจอสัมผัส พร้อมระบบต่างๆ และระบบความปลอดภัยครบครัน</p>
+    <p
+      data-th="รุ่นยอดนิยม เช่น TOYOTA CAMRY, HONDA ACCORD, Mercedes-Benz E-Class, BMW 5 Series, Audi A6, Lexus ES"
+      data-en="Popular models: TOYOTA CAMRY, HONDA ACCORD, Mercedes-Benz E-Class, BMW 5 Series, Audi A6, Lexus ES."
+      data-zh="热门车型：TOYOTA CAMRY、HONDA ACCORD、Mercedes-Benz E-Class、BMW 5系、Audi A6、Lexus ES。"
+      data-ja="人気モデル：TOYOTA CAMRY、HONDA ACCORD、Mercedes-Benz E-Class、BMW 5シリーズ、Audi A6、Lexus ES。"
+      data-ko="인기 모델: TOYOTA CAMRY, HONDA ACCORD, Mercedes-Benz E-Class, BMW 5 시리즈, Audi A6, Lexus ES."
+      data-ru="Популярные модели: TOYOTA CAMRY, HONDA ACCORD, Mercedes-Benz E-Class, BMW 5 Series, Audi A6, Lexus ES."
+    >รุ่นยอดนิยม เช่น TOYOTA CAMRY, HONDA ACCORD , Mercedes-Benz E-Class, BMW 5 Series, Audi A6, Lexus ES</p>
+  </div>
+
+  <div class="features-section">
+    <h3
+      data-th="ฟีเจอร์พิเศษ"
+      data-en="Special Features"
+      data-zh="特色功能"
+      data-ja="特別機能"
+      data-ko="특별 기능"
+      data-ru="Особые функции"
+    >ฟีเจอร์พิเศษ</h3>
+    <div class="features-grid">
+      <div class="feature-item">
+        <i class="fas fa-snowflake"></i>
+        <p
+          data-th="ระบบปรับอากาศอัตโนมัติ Dual-zone"
+          data-en="Dual-zone auto AC"
+          data-zh="双区自动空调"
+          data-ja="デュアルゾーンオートエアコン"
+          data-ko="듀얼존 자동 에어컨"
+          data-ru="Двухзонный авто-кондиционер"
+        >ระบบปรับอากาศอัตโนมัติ Dual-zone</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-shield-alt"></i>
+        <p
+          data-th="ระบบเบรก ABS, EBD"
+          data-en="ABS & EBD brakes"
+          data-zh="ABS和EBD制动系统"
+          data-ja="ABSおよびEBD制動システム"
+          data-ko="ABS 및 EBD 브레이크 시스템"
+          data-ru="Тормозные системы ABS и EBD"
+        >ระบบเบรก ABS, EBD</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-map-marked-alt"></i>
+        <p
+          data-th="ระบบนำทาง GPS"
+          data-en="GPS Navigation"
+          data-zh="GPS 导航"
+          data-ja="GPSナビゲーション"
+          data-ko="GPS 내비게이션"
+          data-ru="GPS навигация"
+        >ระบบนำทาง GPS</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-wifi"></i>
+        <p
+          data-th="Bluetooth Audio"
+          data-en="Bluetooth Audio"
+          data-zh="蓝牙音频"
+          data-ja="Bluetoothオーディオ"
+          data-ko="블루투스 오디오"
+          data-ru="Bluetooth аудио"
+        >Bluetooth Audio</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-car-battery"></i>
+        <p
+          data-th="ระบบสตาร์ทรถด้วยปุ่มกด"
+          data-en="Push-button start"
+          data-zh="一键启动"
+          data-ja="プッシュボタンスタート"
+          data-ko="버튼 시동"
+          data-ru="Запуск кнопкой"
+        >ระบบสตาร์ทรถด้วยปุ่มกด</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-camera"></i>
+        <p
+          data-th="กล้องมองหลัง HD"
+          data-en="HD rear camera"
+          data-zh="高清倒车摄像头"
+          data-ja="HDリアカメラ"
+          data-ko="HD 후방 카메라"
+          data-ru="HD камера заднего вида"
+        >กล้องมองหลัง HD</p>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Bus Detail Page -->
     <section class="car-detail-page" id="bus-detail">
-        <div class="detail-header">
-            <div class="detail-images">
-                <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1170&q=80" alt="Mini Bus Exterior">
-                <img src="https://images.unsplash.com/photo-1603391485030-d6d3f0f4f37e?auto=format&fit=crop&w=1170&q=80" alt="Mini Bus Interior">
-                <img src="https://images.unsplash.com/photo-1533575254709-8b2c1d926d1f?auto=format&fit=crop&w=1170&q=80" alt="Mini Bus Seating">
-            </div>
-            <div class="detail-info">
-                <h2>รถบัส</h2>
-                <div class="detail-price">8,000 - 25,000 บาท/วัน</div>
-                <div class="detail-specs">
-                    <div class="spec-item">
-                        <i class="fas fa-car"></i>
-                        <div>
-                            <h4>ประเภท</h4>
-                            <p>Bus</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-users"></i>
-                        <div>
-                            <h4>จำนวนผู้โดยสาร</h4>
-                            <p>15-30 ที่นั่ง</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-gas-pump"></i>
-                        <div>
-                            <h4>เชื้อเพลิง</h4>
-                            <p>ดีเซล</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-cogs"></i>
-                        <div>
-                            <h4>เกียร์</h4>
-                            <p>อัตโนมัติ</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-road"></i>
-                        <div>
-                            <h4>ระบบขับเคลื่อน</h4>
-                            <p>2WD</p>
-                        </div>
-                    </div>
-                    <div class="spec-item">
-                        <i class="fas fa-suitcase"></i>
-                        <div>
-                            <h4>พื้นที่สัมภาระ</h4>
-                            <p>1,500 - 2,000 ลิตร</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="book-section">
-                    <button class="back-btn"><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
-                    <button class="book-btn"><i class="fas fa-calendar-check"></i> จองรถตอนนี้</button>
-                </div>
-            </div>
+  <div class="detail-header">
+    <div class="detail-images">
+      <img src="รถทัวร์.jpg" alt="Mini Bus Exterior">
+      <img src="ในบัส.jpg" alt="Mini Bus Interior">
+      <img src="บัส.jpg" alt="Mini Bus Seating">
+    </div>
+    <div class="detail-info">
+      <h2
+        data-th="รถบัส"
+        data-en="Bus"
+        data-zh="巴士"
+        data-ja="バス"
+        data-ko="버스"
+        data-ru="Автобус"
+      >รถบัส</h2>
+      <div class="detail-price"
+           data-th="8,000 - 25,000 บาท/วัน"
+           data-en="8,000 – 25,000 THB/day"
+           data-zh="8,000 – 25,000 泰铢/天"
+           data-ja="1日8,000～25,000バーツ"
+           data-ko="일일 8,000 – 25,000 THB"
+           data-ru="8 000 – 25 000 бат/день"
+      >8,000 - 25,000 บาท/วัน</div>
+      <div class="detail-specs">
+        <div class="spec-item">
+          <i class="fas fa-car"></i>
+          <div>
+            <h4
+              data-th="ประเภท"
+              data-en="Type"
+              data-zh="类型"
+              data-ja="種類"
+              data-ko="유형"
+              data-ru="Тип"
+            >ประเภท</h4>
+            <p
+              data-th="Bus"
+              data-en="Bus"
+              data-zh="巴士"
+              data-ja="バス"
+              data-ko="버스"
+              data-ru="Автобус"
+            >Bus</p>
+          </div>
         </div>
-        <div class="detail-description">
-            <h3>รายละเอียดรถบัส</h3>
-            <p>รถบัสขนาดเล็กและกลาง เหมาะสำหรับกลุ่มท่องเที่ยว, ทัศนศึกษา หรือกรุ๊ปทัวร์ ห้องโดยสารกว้างขวาง มีที่วางขาและระบบปรับอากาศเต็มรูปแบบ</p>
-            <p>มีระบบเครื่องเสียง ลำโพงคุณภาพสูง ม่านบังแสงข้าง และที่เก็บสัมภาระใต้ท้องรถขนาดใหญ่</p>
-            <p>รุ่นยอดนิยม เช่น Toyota Coaster, Hyundai County, Mitsubishi Fuso Rosa</p>
+        <div class="spec-item">
+          <i class="fas fa-users"></i>
+          <div>
+            <h4
+              data-th="จำนวนผู้โดยสาร"
+              data-en="Passengers"
+              data-zh="乘客人数"
+              data-ja="乗客数"
+              data-ko="승객 수"
+              data-ru="Пассажиры"
+            >จำนวนผู้โดยสาร</h4>
+            <p
+              data-th="15-30 ที่นั่ง"
+              data-en="15–30 seats"
+              data-zh="15–30 座"
+              data-ja="15～30席"
+              data-ko="15–30석"
+              data-ru="15–30 мест"
+            >15-30 ที่นั่ง</p>
+          </div>
         </div>
-        <div class="features-section">
-            <h3>ฟีเจอร์พิเศษ</h3>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <i class="fas fa-snowflake"></i>
-                    <p>ระบบปรับอากาศเต็มคัน</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <p>เข็มขัดนิรภัยทุกที่นั่ง</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <p>ระบบนำทาง GPS</p>
-                </div>
-               
-                <div class="feature-item">
-                    <i class="fas fa-car-battery"></i>
-                    <p>ปลั๊กชาร์จ USB แต่ละที่นั่ง</p>
-                </div>
-                
-            </div>
+        <div class="spec-item">
+          <i class="fas fa-gas-pump"></i>
+          <div>
+            <h4
+              data-th="เชื้อเพลิง"
+              data-en="Fuel"
+              data-zh="燃料"
+              data-ja="燃料"
+              data-ko="연료"
+              data-ru="Топливо"
+            >เชื้อเพลิง</h4>
+            <p
+              data-th="ดีเซล"
+              data-en="Diesel"
+              data-zh="柴油"
+              data-ja="ディーゼル"
+              data-ko="디젤"
+              data-ru="Дизель"
+            >ดีเซล</p>
+          </div>
         </div>
-    </section>
+        <div class="spec-item">
+          <i class="fas fa-cogs"></i>
+          <div>
+            <h4
+              data-th="เกียร์"
+              data-en="Transmission"
+              data-zh="变速箱"
+              data-ja="トランスミッション"
+              data-ko="변속기"
+              data-ru="Коробка передач"
+            >เกียร์</h4>
+            <p
+              data-th="อัตโนมัติ"
+              data-en="Automatic"
+              data-zh="自动"
+              data-ja="オートマチック"
+              data-ko="자동"
+              data-ru="Автомат"
+            >อัตโนมัติ</p>
+          </div>
+        </div>
+        <div class="spec-item">
+          <i class="fas fa-road"></i>
+          <div>
+            <h4
+              data-th="ระบบขับเคลื่อน"
+              data-en="Drive"
+              data-zh="驱动"
+              data-ja="駆動"
+              data-ko="구동"
+              data-ru="Привод"
+            >ระบบขับเคลื่อน</h4>
+            <p
+              data-th="2WD"
+              data-en="2WD"
+              data-zh="2驱"
+              data-ja="2WD"
+              data-ko="2WD"
+              data-ru="2WD"
+            >2WD</p>
+          </div>
+        </div>
+        <div class="spec-item">
+          <i class="fas fa-suitcase"></i>
+          <div>
+            <h4
+              data-th="พื้นที่สัมภาระ"
+              data-en="Luggage"
+              data-zh="行李空间"
+              data-ja="荷物スペース"
+              data-ko="수하물 공간"
+              data-ru="Багаж"
+            >พื้นที่สัมภาระ</h4>
+            <p
+              data-th="1,500 - 2,000 ลิตร"
+              data-en="1,500–2,000 L"
+              data-zh="1,500–2,000 升"
+              data-ja="1,500～2,000リットル"
+              data-ko="1,500–2,000리터"
+              data-ru="1 500–2 000 л"
+            >1,500 - 2,000 ลิตร</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-section">
+        <button class="back-btn"
+                data-th="กลับหน้าหลัก"
+                data-en="Back to Home"
+                data-zh="返回首页"
+                data-ja="ホームに戻る"
+                data-ko="홈으로 돌아가기"
+                data-ru="На главную"
+        ><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
+        <button class="book-btn"
+                data-th="จองรถตอนนี้"
+                data-en="Book Now"
+                data-zh="立即预订"
+                data-ja="今すぐ予約"
+                data-ko="지금 예약"
+                data-ru="Забронировать"
+        ><i class="fas fa-calendar-check"></i> จองรถตอนนี้</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-description">
+    <h3
+      data-th="รายละเอียดรถบัส"
+      data-en="Bus Details"
+      data-zh="巴士详情"
+      data-ja="バスの詳細"
+      data-ko="버스 상세"
+      data-ru="Подробнее об автобусе"
+    >รายละเอียดรถบัส</h3>
+    <p
+      data-th="รถบัสขนาดเล็กและกลาง เหมาะสำหรับกลุ่มท่องเที่ยว, ทัศนศึกษา หรือกรุ๊ปทัวร์ ห้องโดยสารกว้างขวาง มีที่วางขาและระบบปรับอากาศเต็มรูปแบบ"
+      data-en="Small to mid-size buses ideal for tours, field trips or group travel with spacious cabins, ample legroom, and full AC."
+      data-zh="小型到中型巴士，适合旅行团、实地考察或团队旅游，宽敞客舱、充足腿部空间及全车空调。"
+      data-ja="小型～中型バスはツアー、遠足、団体旅行に最適。広々としたキャビン、十分なレッグルーム、全車AC完備。"
+      data-ko="소형~중형 버스는 투어, 현장 학습 또는 단체 여행에 적합하며, 넓은 실내 공간, 충분한 다리 공간 및 전체 AC 시스템을 갖추고 있습니다."
+      data-ru="Автобусы малого и среднего размера, идеальны для экскурсий, школьных поездок или групповых туров — просторный салон, удобные места и полный кондиционер."
+    >รถบัสขนาดเล็กและกลาง เหมาะสำหรับกลุ่มท่องเที่ยว, ทัศนศึกษา หรือกรุ๊ปทัวร์ ห้องโดยสารกว้างขวาง มีที่วางขาและระบบปรับอากาศเต็มรูปแบบ</p>
+    <p
+      data-th="มีระบบเครื่องเสียง ลำโพงคุณภาพสูง ม่านบังแสงข้าง และที่เก็บสัมภาระใต้ท้องรถขนาดใหญ่"
+      data-en="Features premium audio with quality speakers, side window curtains, and large underfloor luggage storage."
+      data-zh="配备高品质音响、侧窗帘以及大型底部行李舱。"
+      data-ja="高品質スピーカー付きオーディオ、サイドカーテン、大容量下部ラゲッジスペースを完備。"
+      data-ko="고급 스피커가 있는 프리미엄 오디오, 사이드 커튼 및 대형 하부 수하물 공간이 특징입니다."
+      data-ru="Имеет премиальную аудиосистему с качественными динамиками, боковые шторы и большой багажник под полом."
+    >มีระบบเครื่องเสียง ลำโพงคุณภาพสูง ม่านบังแสงข้าง และที่เก็บสัมภาระใต้ท้องรถขนาดใหญ่</p>
+    <p
+      data-th="รุ่นยอดนิยม เช่น Toyota Coaster, Hyundai County, Mitsubishi Fuso Rosa"
+      data-en="Popular models: Toyota Coaster, Hyundai County, Mitsubishi Fuso Rosa."
+      data-zh="热门车型：丰田考斯特、现代郡、三菱扶桑罗莎。"
+      data-ja="人気モデル：Toyota Coaster、Hyundai County、Mitsubishi Fuso Rosa。"
+      data-ko="인기 모델: Toyota Coaster, Hyundai County, Mitsubishi Fuso Rosa."
+      data-ru="Популярные модели: Toyota Coaster, Hyundai County, Mitsubishi Fuso Rosa."
+    >รุ่นยอดนิยม เช่น Toyota Coaster, Hyundai County, Mitsubishi Fuso Rosa</p>
+  </div>
+
+  <div class="features-section">
+    <h3
+      data-th="ฟีเจอร์พิเศษ"
+      data-en="Special Features"
+      data-zh="特色功能"
+      data-ja="特別機能"
+      data-ko="특별 기능"
+      data-ru="Особые функции"
+    >ฟีเจอร์พิเศษ</h3>
+    <div class="features-grid">
+      <div class="feature-item">
+        <i class="fas fa-snowflake"></i>
+        <p
+          data-th="ระบบปรับอากาศเต็มคัน"
+          data-en="Full-vehicle AC"
+          data-zh="全车空调"
+          data-ja="全車AC"
+          data-ko="전 차량 AC"
+          data-ru="Кондиционер по всему салону"
+        >ระบบปรับอากาศเต็มคัน</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-shield-alt"></i>
+        <p
+          data-th="เข็มขัดนิรภัยทุกที่นั่ง"
+          data-en="Seatbelts at every seat"
+          data-zh="每个座位安全带"
+          data-ja="全席シートベルト"
+          data-ko="모든 좌석 안전벨트"
+          data-ru="Ремни безопасности на каждом сиденье"
+        >เข็มขัดนิรภัยทุกที่นั่ง</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-map-marked-alt"></i>
+        <p
+          data-th="ระบบนำทาง GPS"
+          data-en="GPS Navigation"
+          data-zh="GPS 导航"
+          data-ja="GPSナビゲーション"
+          data-ko="GPS 내비게이션"
+          data-ru="GPS навигация"
+        >ระบบนำทาง GPS</p>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-car-battery"></i>
+        <p
+          data-th="ปลั๊กชาร์จ USB แต่ละที่นั่ง"
+          data-en="USB chargers at every seat"
+          data-zh="每座USB充电口"
+          data-ja="全席USBチャージャー"
+          data-ko="모든 좌석 USB 충전기"
+          data-ru="USB порты на каждом сиденье"
+        >ปลั๊กชาร์จ USB แต่ละที่นั่ง</p>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- About Section -->
     <section class="extra-links" id="about-section">
-        <div style="max-width:800px; margin: 0 auto; text-align: center;">
-            <div class="section-title">
-                <h2>เกี่ยวกับ THAI KK TRAVEL </h2>
-            </div>
-            <p>THAI KK TRAVEL  ก่อตั้งขึ้นเพื่อให้บริการเช่ารถหรูและเรือสำราญคุณภาพสูงในประเทศไทย เรามีประสบการณ์กว่า 10 ปี ในการดูแลลูกค้าระดับพรีเมี่ยม พร้อมทีมงานมืออาชีพที่คัดสรรรถและเรือทุกลำด้วยมาตรฐานสูงสุด</p>
-            <p>นอกจากนี้ เรายังมีบริการด้านการจัดทริปพิเศษ เช่น ทัวร์ทะเลเกาะต่างๆ ทริปดำน้ำลึก และบริการเสริมบนเรือ เช่น ค็อกเทลเชฟ ปาร์ตี้บนเรือ จัดเลี้ยงรับรององค์กร หรืองานแต่งงานบนเรือ</p>
-            <p>ทีมงาน THAI KK TRAVEL  ยินดีให้คำปรึกษาและนำเสนอโปรแกรมการเดินทางที่ตอบโจทย์ทุกไลฟ์สไตล์ ทั้งเดินทางแบบครอบครัว กลุ่มเพื่อน คู่รัก หรือองค์กร</p>
-        </div>
-    </section>
+  <div style="max-width:800px; margin: 0 auto; text-align: center;">
+    <div class="section-title">
+      <h2
+        data-th="เกี่ยวกับ THAI KK TRAVEL"
+        data-en="About THAI KK TRAVEL"
+        data-zh="关于 THAI KK TRAVEL"
+        data-ja="THAI KK TRAVEL について"
+        data-ko="THAI KK TRAVEL 소개"
+        data-ru="О компании THAI KK TRAVEL"
+      >เกี่ยวกับ THAI KK TRAVEL</h2>
+    </div>
+    <p
+      data-th="THAI KK TRAVEL ก่อตั้งขึ้นเพื่อให้บริการเช่ารถหรูและเรือสำราญคุณภาพสูงในประเทศไทย เรามีประสบการณ์กว่า 10 ปี ในการดูแลลูกค้าระดับพรีเมี่ยม พร้อมทีมงานมืออาชีพที่คัดสรรรถและเรือทุกลำด้วยมาตรฐานสูงสุด"
+      data-en="THAI KK TRAVEL was founded to offer luxury car and yacht rentals in Thailand. With over 10 years of experience serving premium clients, our professional team handpicks every vehicle and yacht to the highest standards."
+      data-zh="THAI KK TRAVEL 成立于泰国，提供豪华汽车和游艇租赁服务。我们拥有超过10年的高端客户服务经验，专业团队以最高标准甄选每一辆车和游艇。"
+      data-ja="THAI KK TRAVELはタイで高級車およびヨットのレンタルサービスを提供するために設立。10年以上のプレミアム顧客対応経験を持つプロチームが、あらゆる車両とヨットを最高基準で厳選します。"
+      data-ko="THAI KK TRAVEL은 태국에서 럭셔리 자동차 및 요트 렌탈 서비스를 제공하기 위해 설립되었습니다. 10년 이상의 프리미엄 고객 서비스 경험을 가진 전문가 팀이 모든 차량과 요트를 최고 기준으로 선별합니다."
+      data-ru="THAI KK TRAVEL основана для предоставления услуг аренды роскошных автомобилей и яхт в Таиланде. Мы имеем более 10 лет опыта работы с премиальными клиентами, а наша профессиональная команда отбирает каждое судно и авто по высочайшим стандартам."
+    >THAI KK TRAVEL  ก่อตั้งขึ้นเพื่อให้บริการเช่ารถหรูและเรือสำราญคุณภาพสูงในประเทศไทย เรามีประสบการณ์กว่า 10 ปี ในการดูแลลูกค้าระดับพรีเมี่ยม พร้อมทีมงานมืออาชีพที่คัดสรรรถและเรือทุกลำด้วยมาตรฐานสูงสุด</p>
+    <p
+      data-th="นอกจากนี้ เรายังมีบริการด้านการจัดทริปพิเศษ เช่น ทัวร์ทะเลเกาะต่างๆ ทริปดำน้ำลึก และบริการเสริมบนเรือ เช่น ค็อกเทลเชฟ ปาร์ตี้บนเรือ จัดเลี้ยงรับรององค์กร หรืองานแต่งงานบนเรือ"
+      data-en="We also organize special trips—island tours, deep-sea diving excursions—and on-board extras like cocktail chefs, yacht parties, corporate receptions, and even wedding ceremonies."
+      data-zh="此外，我们还提供特别行程：岛屿巡游、深海潜水体验，以及船上附加服务，如调酒大厨、游艇派对、公司招待和婚礼仪式。"
+      data-ja="さらに、特別ツアー（島巡り、ディープシーダイビング）や船上サービス（カクテルシェフ、ヨットパーティー、企業レセプション、船上ウェディング）も提供します。"
+      data-ko="또한 섬 투어, 딥씨 다이빙 등 특별 여행과 칵테일 셰프, 요트 파티, 기업 리셉션, 요트 웨딩 등의 선상 서비스를 제공합니다."
+      data-ru="Мы также организуем специальные туры — островные круизы, дайвинг на глубине, а также дополнительные услуги на борту: шеф-бармен, вечеринки на яхте, корпоративные приемы и свадебные церемонии."
+    >นอกจากนี้ เรายังมีบริการด้านการจัดทริปพิเศษ เช่น ทัวร์ทะเลเกาะต่างๆ ทริปดำน้ำลึก และบริการเสริมบนเรือ เช่น ค็อกเทลเชฟ ปาร์ตี้บนเรือ จัดเลี้ยงรับรององค์กร หรืองานแต่งงานบนเรือ</p>
+    <p
+      data-th="ทีมงาน THAI KK TRAVEL ยินดีให้คำปรึกษาและนำเสนอโปรแกรมการเดินทางที่ตอบโจทย์ทุกไลฟ์สไตล์ ทั้งเดินทางแบบครอบครัว กลุ่มเพื่อน คู่รัก หรือองค์กร"
+      data-en="The THAI KK TRAVEL team is happy to consult and design itineraries for every lifestyle—families, friends, couples, or corporate groups."
+      data-zh="THAI KK TRAVEL团队乐于为各种出行风格（家庭、朋友、情侣或企业团体）提供咨询和行程设计。"
+      data-ja="THAI KK TRAVELチームは、家族旅行、友人同士、カップル、法人グループなど、あらゆるライフスタイルに合った旅程をご提案します。"
+      data-ko="THAI KK TRAVEL 팀은 가족, 친구, 커플 또는 기업 그룹 등 모든 라이프스타일에 맞춘 여행 일정을 기획 및 상담해 드립니다."
+      data-ru="Команда THAI KK TRAVEL с удовольствием консультирует и разрабатывает маршруты для любых стилей путешествий — семьям, друзьям, парам или корпоративным группам."
+    >ทีมงาน THAI KK TRAVEL  ยินดีให้คำปรึกษาและนำเสนอโปรแกรมการเดินทางที่ตอบโจทย์ทุกไลฟ์สไตล์ ทั้งเดินทางแบบครอบครัว กลุ่มเพื่อน คู่รัก หรือองค์กร</p>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer id="contact-footer">
-        <div class="footer-container">
-            <div class="footer-col">
-                <h3>เกี่ยวกับเรา</h3>
-                <p>THAI KK TRAVEL  ให้บริการเช่ารถหรูและเรือสำราญระดับพรีเมี่ยม ด้วยมาตรฐานการบริการสูงสุดสำหรับลูกค้าทุกท่าน</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-line"></i></a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h3>ลิงก์ด่วน</h3>
-                <ul class="footer-links">
-                    <li><a href="#hero-section"><i class="fas fa-chevron-right"></i> หน้าแรก</a></li>
-                    <li><a href="#categories"><i class="fas fa-chevron-right"></i> ประเภทรถเช่า</a></li>
-                    <li><a href="#boat-services"><i class="fas fa-chevron-right"></i> บริการเรือ</a></li>
-                    <li><a href="#about-section"><i class="fas fa-chevron-right"></i> เกี่ยวกับเรา</a></li>
-                    <li><a href="#contact-footer"><i class="fas fa-chevron-right"></i> ติดต่อเรา</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>ประเภทรถเช่า</h3>
-                <ul class="footer-links">
-                    <li><a href="#van-detail"><i class="fas fa-chevron-right"></i> รถตู้</a></li>
-                    <li><a href="#suv-detail"><i class="fas fa-chevron-right"></i> รถ SUV</a></li>
-                    <li><a href="#vip-detail"><i class="fas fa-chevron-right"></i> รถตู้ VIP</a></li>
-                    <li><a href="#alphard-detail"><i class="fas fa-chevron-right"></i> รถ Alphard</a></li>
-                    <li><a href="#sedan-detail"><i class="fas fa-chevron-right"></i> รถ Sedan</a></li>
-                    <li><a href="#bus-detail"><i class="fas fa-chevron-right"></i> รถบัส</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>ติดต่อเรา</h3>
-                <ul class="footer-links">
-                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> 88/85 หมู่บ้าน บางกอกบูเลอวาร์ด รามอินทรา 3 </a></li>
-                    <li><a href="#"><i class="fas fa-phone"></i> 096-826-8168</a></li>
-                    <li><a href="#"><i class="fas fa-envelope"></i> thaikktravel@gmail.com</a></li>
-                    <li><a href="#"><i class="fas fa-clock"></i> จันทร์-อาทิตย์: 08:00 - 20:00 น.</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyright">
-            &copy; 2025 THAI KK TRAVEL. All rights reserved.
-        </div>
-    </footer>
+<footer id="contact-footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3
+        data-th="เกี่ยวกับเรา"
+        data-en="About Us"
+        data-zh="关于我们"
+        data-ja="私たちについて"
+        data-ko="회사 소개"
+        data-ru="О нас"
+      >เกี่ยวกับเรา</h3>
+      <p
+        data-th="THAI KK TRAVEL ให้บริการเช่ารถหรูและเรือสำราญระดับพรีเมี่ยม ด้วยมาตรฐานการบริการสูงสุดสำหรับลูกค้าทุกท่าน"
+        data-en="THAI KK TRAVEL offers premium luxury car and yacht rentals with top-tier service for every customer."
+        data-zh="THAI KK TRAVEL 提供豪华汽车和游艇租赁，秉承最高服务标准，为每位客户提供尊享体验。"
+        data-ja="THAI KK TRAVELは高級車およびヨットのプレミアムレンタルを提供し、すべてのお客様に最高のサービスをお約束します。"
+        data-ko="THAI KK TRAVEL은 모든 고객에게 최상의 서비스를 제공하는 고급 자동차 및 요트 렌탈을 제공합니다."
+        data-ru="THAI KK TRAVEL предлагает премиальную аренду роскошных автомобилей и яхт с сервисом высочайшего уровня для каждого клиента."
+      >THAI KK TRAVEL  ให้บริการเช่ารถหรูและเรือสำราญระดับพรีเมี่ยม ด้วยมาตรฐานการบริการสูงสุดสำหรับลูกค้าทุกท่าน</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-line"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h3
+        data-th="ลิงก์ด่วน"
+        data-en="Quick Links"
+        data-zh="快速链接"
+        data-ja="クイックリンク"
+        data-ko="빠른 링크"
+        data-ru="Быстрые ссылки"
+      >ลิงก์ด่วน</h3>
+      <ul class="footer-links">
+        <li><a href="#hero-section"><i class="fas fa-chevron-right"></i> <span data-th="หน้าแรก" data-en="Home" data-zh="首页" data-ja="ホーム" data-ko="홈" data-ru="Главная">หน้าแรก</span></a></li>
+        <li><a href="#categories"><i class="fas fa-chevron-right"></i> <span data-th="ประเภทรถเช่า" data-en="Car Types" data-zh="租车类型" data-ja="車種" data-ko="차종" data-ru="Типы авто">ประเภทรถเช่า</span></a></li>
+        <li><a href="#boat-services"><i class="fas fa-chevron-right"></i> <span data-th="บริการเรือ" data-en="Boat Services" data-zh="船舶服务" data-ja="ボートサービス" data-ko="보트 서비스" data-ru="Услуги лодок">บริการเรือ</span></a></li>
+        <li><a href="#about-section"><i class="fas fa-chevron-right"></i> <span data-th="เกี่ยวกับเรา" data-en="About" data-zh="关于我们" data-ja="私たちについて" data-ko="회사 소개" data-ru="О нас">เกี่ยวกับเรา</span></a></li>
+        <li><a href="#contact-footer"><i class="fas fa-chevron-right"></i> <span data-th="ติดต่อเรา" data-en="Contact" data-zh="联系我们" data-ja="お問い合わせ" data-ko="문의하기" data-ru="Контакты">ติดต่อเรา</span></a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3
+        data-th="ประเภทรถเช่า"
+        data-en="Car Types"
+        data-zh="租车类型"
+        data-ja="車種"
+        data-ko="차종"
+        data-ru="Типы авто"
+      >ประเภทรถเช่า</h3>
+      <ul class="footer-links">
+        <li><a href="#van-detail"><i class="fas fa-chevron-right"></i> <span data-th="รถตู้" data-en="Van" data-zh="面包车" data-ja="バン" data-ko="밴" data-ru="Фургон">รถตู้</span></a></li>
+        <li><a href="#suv-detail"><i class="fas fa-chevron-right"></i> <span data-th="รถ SUV" data-en="SUV" data-zh="SUV" data-ja="SUV" data-ko="SUV" data-ru="Внедорожник">รถ SUV</span></a></li>
+        <li><a href="#vip-detail"><i class="fas fa-chevron-right"></i> <span data-th="รถตู้ VIP" data-en="VIP Van" data-zh="VIP 面包车" data-ja="VIPバン" data-ko="VIP 밴" data-ru="VIP микроавтобус">รถตู้ VIP</span></a></li>
+        <li><a href="#alphard-detail"><i class="fas fa-chevron-right"></i> <span data-th="รถ Alphard" data-en="Alphard" data-zh="阿尔法" data-ja="アルファード" data-ko="알파드" data-ru="Альфард">รถ Alphard</span></a></li>
+        <li><a href="#sedan-detail"><i class="fas fa-chevron-right"></i> <span data-th="รถ Sedan" data-en="Sedan" data-zh="轿车" data-ja="セダン" data-ko="세단" data-ru="Седан">รถ Sedan</span></a></li>
+        <li><a href="#bus-detail"><i class="fas fa-chevron-right"></i> <span data-th="รถบัส" data-en="Bus" data-zh="巴士" data-ja="バス" data-ko="버스" data-ru="Автобус">รถบัส</span></a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3
+        data-th="ติดต่อเรา"
+        data-en="Contact Us"
+        data-zh="联系我们"
+        data-ja="お問い合わせ"
+        data-ko="문의하기"
+        data-ru="Свяжитесь с нами"
+      >ติดต่อเรา</h3>
+      <ul class="footer-links">
+        <li><a href="#"><i class="fas fa-map-marker-alt"></i> <span data-th="123 ถนนสุขุมวิท แขวงคลองเตย เขตคลองเตย กรุงเทพฯ 10110" data-en="123 Sukhumvit Rd., Khlong Toei, Bangkok 10110" data-zh="泰国曼谷Khlong Toei区素坤逸路123号 10110" data-ja="123 Sukhumvit Rd., Khlong Toei, バンコク 10110" data-ko="방콕 클롱토이구 수쿰윗로 123, 10110" data-ru="123 Сукумвит Роуд, район Клонг-той, Бангкок 10110">123 ถนนสุขุมวิท แขวงคลองเตย เขตคลองเตย กรุงเทพฯ 10110</span></a></li>
+        <li><a href="tel:+66968268168"><i class="fas fa-phone"></i> <span data-th="096-826-8168" data-en="+66 96 826 8168" data-zh="+66 96 826 8168" data-ja="+66 96 826 8168" data-ko="+66 96 826 8168" data-ru="+66 96 826 8168">096-826-8168</span></a></li>
+        <li><a href="mailto:thaikktravel@gmail.com"><i class="fas fa-envelope"></i> <span data-th="thaikktravel@gmail.com" data-en="thaikktravel@gmail.com" data-zh="thaikktravel@gmail.com" data-ja="thaikktravel@gmail.com" data-ko="thaikktravel@gmail.com" data-ru="thaikktravel@gmail.com">thaikktravel@gmail.com</span></a></li>
+        <li><a href="#"><i class="fas fa-clock"></i> <span data-th="จันทร์-อาทิตย์: 08:00 - 20:00 น." data-en="Mon–Sun: 08:00 – 20:00" data-zh="周一至周日: 08:00–20:00" data-ja="月〜日: 08:00〜20:00" data-ko="월–일: 08:00–20:00" data-ru="Пн–Вс: 08:00–20:00">จันทร์-อาทิตย์: 08:00 - 20:00 น.</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyright"
+       data-th="&copy; 2025 THAI KK TRAVEL. All rights reserved."
+       data-en="&copy; 2025 THAI KK TRAVEL. All rights reserved."
+       data-zh="&copy; 2025 THAI KK TRAVEL。保留所有权利。"
+       data-ja="&copy; 2025 THAI KK TRAVEL。全著作権所有。"
+       data-ko="&copy; 2025 THAI KK TRAVEL. 판권 소유."
+       data-ru="&copy; 2025 THAI KK TRAVEL. Все права защищены."
+  >&copy; 2025 THAI KK TRAVEL. All rights reserved.</div>
+</footer>
 
     <script>
         // Language Dropdown Toggle
