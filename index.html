@@ -11,7 +11,62 @@
          data-ja="THAI KK TRAVEL - 高級車とヨットのレンタル">THAI KK TRAVEL</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@400;500;700&display=swap" rel="stylesheet">
-  <style>
+<style>
+/* เมื่อต้องการโฟกัสให้ดูเด่นขึ้น */
+.chat-options select:focus {
+  outline: none;
+  border-color: var(--primary); /* หรือสีที่คุณใช้ไฮไลต์ */
+  box-shadow: 0 0 0 3px rgba(27,5,152,0.15);
+}
+/* ให้ dropdown สูงเท่าปุ่ม */
+.chat-options select {
+  height: 40px;
+  padding: 0 12px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* ปุ่มพื้นฐาน */
+.chat-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: filter .2s;
+}
+
+/* สีปุ่มตามแพลตฟอร์ม */
+.chat-option[data-platform="line"] {
+  background: #00C300; /* LINE green */
+  color: #fff;
+}
+.chat-option[data-platform="wechat"] {
+  background: #00C300; /* WeChat green */
+  color: #fff;
+}
+
+/* hover effect */
+.chat-option:hover {
+  filter: brightness(0.9);
+}
+
+/* ไอคอนขนาดเหมาะสม */
+.chat-option i {
+  font-size: 18px;
+}
+  </style>
+  <!-- ถ้ามี <style> อีกบล็อก ก็ให้รวมไว้ในบล็อกเดียวจะง่ายกว่า -->
+</head>
+ <style>
         /* เพิ่มสไตล์สำหรับรองรับภาษาอาหรับ */
         [lang="ar"] {
             direction: rtl;
@@ -753,7 +808,6 @@
                 font-size: 28px;
             }
         }
-
     </style>
 </head>
 <body>
@@ -1065,7 +1119,7 @@ document.addEventListener('DOMContentLoaded', function() {
             data-ko="편안함과 프라이버시를 강조한 프리미엄 밴"
             data-ru="Премиум микроавтобусы, ориентированные на комфорт и приватность"
           >รถตู้ระดับพรีเมี่ยม เน้นความสะดวกสบายและความเป็นส่วนตัว</p>
-          <a href="#vip-detail" class="view-more"
+          <a href="#van-detail" class="view-more"
              data-th="ดูรายละเอียด"
              data-en="View Details"
              data-zh="查看详情"
@@ -1715,23 +1769,67 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </div>
 
-      <div class="book-section">
-        <button class="back-btn"
-                data-th="กลับหน้าหลัก"
-                data-en="Back to Home"
-                data-zh="返回首页"
-                data-ja="ホームに戻る"
-                data-ko="홈으로 돌아가기"
-                data-ru="На главную"
-        ><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
-        <button class="book-btn"
-                data-th="จองรถตอนนี้"
-                data-en="Book Now"
-                data-zh="立即预订"
-                data-ja="今すぐ予約"
-                data-ko="지금 예약"
-                data-ru="Забронировать"
-        ><i class="fas fa-calendar-check"></i> จองรถตอนนี้</button>
+<div class="book-section" data-item="รถ">
+  <button class="back-btn"
+          data-th="กลับหน้าหลัก"
+          data-en="Back to Home"
+          data-zh="返回首页"
+          data-ja="ホームに戻る"
+          data-ko="홈으로 돌아가기"
+          data-ru="На головну">
+    <i class="fas fa-arrow-left"></i> กลับหน้าหลัก
+  </button>
+  <div class="chat-options">
+    <button class="chat-option" data-platform="line">
+      <i class="fab fa-line"></i> LINE
+    </button>
+    <button class="chat-option" data-platform="wechat">
+      <i class="fab fa-weixin"></i> WeChat
+    </button>
+  </div>
+</div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // อ่านชื่อสินค้าจาก data-item
+    const bookSection = document.querySelector('.book-section[data-item]');
+    const itemName = bookSection.dataset.item;
+
+    function getChatUrl(platform) {
+      const lang = document.documentElement.lang || 'th';
+      const texts = {
+        th: `สวัสดีครับ/ค่ะ ฉันสนใจจอง: ${itemName}`,
+        en: `Hello, I'd like to book: ${itemName}`,
+        // … เพิ่มภาษาที่ต้องการ …
+      };
+      const msg = encodeURIComponent(texts[lang] || texts.th);
+
+      if (platform === 'line') {
+        const base = 'https://line.me/ti/p/uAJsMX6YBp';
+        return `${base}?text=${msg}`;
+      }
+      if (platform === 'wechat') {
+        alert(
+          'กรุณาเปิด WeChat แล้วค้นหา ID: jacky0767\n' +
+          'แล้วส่งข้อความ:\n' + decodeURIComponent(msg)
+        );
+        return false;
+      }
+      return '#';
+    }
+
+    document.querySelectorAll('.chat-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const url = getChatUrl(btn.dataset.platform);
+        if (url) window.open(url, '_blank');
+      });
+    });
+  });
+</script>
+
+  <!-- จบการวาง chat-options -->
+</div>
       </div>
     </div>
   </div>
@@ -1841,7 +1939,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
 
     <!-- VIP Detail Page -->
-<section class="car-detail-page" id="vip-detail">
+<section class="car-detail-page" id="van-detail">
   <div class="detail-header">
     <div class="detail-images">
       <img src="benz.png" alt="Mercedes-Benz V-Class">
@@ -1993,23 +2091,29 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         </div>
       </div>
-      <div class="book-section">
-        <button class="back-btn"
-                data-th="กลับหน้าหลัก"
-                data-en="Back to Home"
-                data-zh="返回首页"
-                data-ja="ホームに戻る"
-                data-ko="홈으로 돌아가기"
-                data-ru="На главную"
-        ><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
-        <button class="book-btn"
-                data-th="จองรถตอนนี้"
-                data-en="Book Now"
-                data-zh="立即预订"
-                data-ja="今すぐ予約"
-                data-ko="지금 예약"
-                data-ru="Забронировать"
-        ><i class="fas fa-calendar-check"></i> จองรถตอนนี้</button>
+      
+<div class="book-section" data-item="รถ">
+  <button class="back-btn"
+          data-th="กลับหน้าหลัก"
+          data-en="Back to Home"
+          data-zh="返回首页"
+          data-ja="ホームに戻る"
+          data-ko="홈으로 돌아가기"
+          data-ru="На головну">
+    <i class="fas fa-arrow-left"></i> กลับหน้าหลัก
+  </button>
+  <div class="chat-options">
+    <button class="chat-option" data-platform="line">
+      <i class="fab fa-line"></i> LINE
+    </button>
+    <button class="chat-option" data-platform="wechat">
+      <i class="fab fa-weixin"></i> WeChat
+    </button>
+  </div>
+</div>
+
+  <!-- จบการวาง chat-options -->
+</div>
       </div>
     </div>
   </div>
@@ -2272,23 +2376,28 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </div>
 
-      <div class="book-section">
+    <div class="book-section" data-item="รถ">
         <button class="back-btn"
-                data-th="กลับหน้าหลัก"
-                data-en="Back to Home"
-                data-zh="返回首页"
-                data-ja="ホームに戻る"
-                data-ko="홈으로 돌아가기"
-                data-ru="На главную"
-        ><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
-        <button class="book-btn"
-                data-th="จองรถตอนนี้"
-                data-en="Book Now"
-                data-zh="立即预订"
-                data-ja="今すぐ予約"
-                data-ko="지금 예약"
-                data-ru="Забронировать"
-        ><i class="fas fa-calendar-check"></i> จองรถตอนนี้</button>
+          data-th="กลับหน้าหลัก"
+          data-en="Back to Home"
+          data-zh="返回首页"
+          data-ja="ホームに戻る"
+          data-ko="홈으로 돌아가기"
+          data-ru="На головну">
+    <i class="fas fa-arrow-left"></i> กลับหน้าหลัก
+     </button>
+    <div class="chat-options">
+    <button class="chat-option" data-platform="line">
+      <i class="fab fa-line"></i> LINE
+    </button>
+     <button class="chat-option" data-platform="wechat">
+      <i class="fab fa-weixin"></i> WeChat
+    </button>
+  </div>
+</div>
+
+        <!-- จบการวาง chat-options -->
+</div>
       </div>
     </div>
   </div>
@@ -2396,7 +2505,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </div>
 </section>
-
 
     <!-- Sedan Detail Page -->
  <section class="car-detail-page" id="sedan-detail">
@@ -2551,23 +2659,28 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         </div>
       </div>
-      <div class="book-section">
-        <button class="back-btn"
-                data-th="กลับหน้าหลัก"
-                data-en="Back to Home"
-                data-zh="返回首页"
-                data-ja="ホームに戻る"
-                data-ko="홈으로 돌아가기"
-                data-ru="На главную"
-        ><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
-        <button class="book-btn"
-                data-th="จองรถตอนนี้"
-                data-en="Book Now"
-                data-zh="立即预订"
-                data-ja="今すぐ予約"
-                data-ko="지금 예약"
-                data-ru="Забронировать"
-        ><i class="fas fa-calendar-check"></i> จองรถตอนนี้</button>
+<div class="book-section" data-item="รถ">
+  <button class="back-btn"
+          data-th="กลับหน้าหลัก"
+          data-en="Back to Home"
+          data-zh="返回首页"
+          data-ja="ホームに戻る"
+          data-ko="홈으로 돌아가기"
+          data-ru="На головну">
+    <i class="fas fa-arrow-left"></i> กลับหน้าหลัก
+  </button>
+  <div class="chat-options">
+    <button class="chat-option" data-platform="line">
+      <i class="fab fa-line"></i> LINE
+    </button>
+    <button class="chat-option" data-platform="wechat">
+      <i class="fab fa-weixin"></i> WeChat
+    </button>
+  </div>
+</div>
+
+  <!-- จบการวาง chat-options -->
+</div>
       </div>
     </div>
   </div>
@@ -2841,23 +2954,28 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </div>
 
-      <div class="book-section">
-        <button class="back-btn"
-                data-th="กลับหน้าหลัก"
-                data-en="Back to Home"
-                data-zh="返回首页"
-                data-ja="ホームに戻る"
-                data-ko="홈으로 돌아가기"
-                data-ru="На главную"
-        ><i class="fas fa-arrow-left"></i> กลับหน้าหลัก</button>
-        <button class="book-btn"
-                data-th="จองรถตอนนี้"
-                data-en="Book Now"
-                data-zh="立即预订"
-                data-ja="今すぐ予約"
-                data-ko="지금 예약"
-                data-ru="Забронировать"
-        ><i class="fas fa-calendar-check"></i> จองรถตอนนี้</button>
+<div class="book-section" data-item="รถ">
+  <button class="back-btn"
+          data-th="กลับหน้าหลัก"
+          data-en="Back to Home"
+          data-zh="返回首页"
+          data-ja="ホームに戻る"
+          data-ko="홈으로 돌아가기"
+          data-ru="На головну">
+    <i class="fas fa-arrow-left"></i> กลับหน้าหลัก
+  </button>
+  <div class="chat-options">
+    <button class="chat-option" data-platform="line">
+      <i class="fab fa-line"></i> LINE
+    </button>
+    <button class="chat-option" data-platform="wechat">
+      <i class="fab fa-weixin"></i> WeChat
+    </button>
+  </div>
+</div>
+
+        <!-- จบการวาง chat-options -->
+</div>
       </div>
     </div>
   </div>
@@ -3016,9 +3134,9 @@ document.addEventListener('DOMContentLoaded', function() {
       >THAI KK TRAVEL  ให้บริการเช่ารถหรูและเรือสำราญระดับพรีเมี่ยม ด้วยมาตรฐานการบริการสูงสุดสำหรับลูกค้าทุกท่าน</p>
       <div class="social-links">
         <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-weixin"></i></a>
         <a href="#"><i class="fab fa-line"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
     <div class="footer-col">
@@ -3050,7 +3168,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <ul class="footer-links">
         <li><a href="#van-detail"><i class="fas fa-chevron-right"></i> <span data-th="รถตู้" data-en="Van" data-zh="面包车" data-ja="バン" data-ko="밴" data-ru="Фургон">รถตู้</span></a></li>
         <li><a href="#suv-detail"><i class="fas fa-chevron-right"></i> <span data-th="รถ SUV" data-en="SUV" data-zh="SUV" data-ja="SUV" data-ko="SUV" data-ru="Внедорожник">รถ SUV</span></a></li>
-        <li><a href="#vip-detail"><i class="fas fa-chevron-right"></i> <span data-th="รถตู้ VIP" data-en="VIP Van" data-zh="VIP 面包车" data-ja="VIPバン" data-ko="VIP 밴" data-ru="VIP микроавтобус">รถตู้ VIP</span></a></li>
+        <li><a href="#van-detail"><i class="fas fa-chevron-right"></i> <span data-th="รถตู้ VIP" data-en="VIP Van" data-zh="VIP 面包车" data-ja="VIPバン" data-ko="VIP 밴" data-ru="VIP микроавтобус">รถตู้ VIP</span></a></li>
         <li><a href="#alphard-detail"><i class="fas fa-chevron-right"></i> <span data-th="รถ Alphard" data-en="Alphard" data-zh="阿尔法" data-ja="アルファード" data-ko="알파드" data-ru="Альфард">รถ Alphard</span></a></li>
         <li><a href="#sedan-detail"><i class="fas fa-chevron-right"></i> <span data-th="รถ Sedan" data-en="Sedan" data-zh="轿车" data-ja="セダン" data-ko="세단" data-ru="Седан">รถ Sedan</span></a></li>
         <li><a href="#bus-detail"><i class="fas fa-chevron-right"></i> <span data-th="รถบัส" data-en="Bus" data-zh="巴士" data-ja="バス" data-ko="버스" data-ru="Автобус">รถบัส</span></a></li>
@@ -3082,6 +3200,45 @@ document.addEventListener('DOMContentLoaded', function() {
        data-ru="&copy; 2025 THAI KK TRAVEL. Все права защищены."
   >&copy; 2025 THAI KK TRAVEL. All rights reserved.</div>
 </footer>
+
+<script>
+    const select = document.getElementById('typeSelect');
+    let selectedType = select.value;
+    select.addEventListener('change', () => selectedType = select.value);
+
+    function getChatUrl(platform) {
+      const lang = document.documentElement.lang || 'th';
+      const messages = {
+        th: `สวัสดีครับ/ค่ะ ผมต้องการจอง: ${selectedType}`,
+        en: `Hello, I’d like to book: ${selectedType}`,
+        zh: `您好，我想预订：${selectedType}`,
+        ja: `こんにちは、予約したいです：${selectedType}`,
+        ko: `안녕하세요, 예약하고 싶습니다: ${selectedType}`,
+        ru: `Здравствуйте, я хочу забронировать: ${selectedType}`
+      };
+      const msg = encodeURIComponent(messages[lang] || messages.th);
+
+      if (platform === 'line') {
+        return `https://line.me/R/ti/p/@thaikktravel?text=${msg}`;
+      }
+      if (platform === 'wechat') {
+        alert(
+          'กรุณาเปิด WeChat แล้วค้นหา ID: thaikktravel\n' +
+          'จากนั้นส่งข้อความ:\n' + decodeURIComponent(msg)
+        );
+        return false;
+      }
+      return '#';
+    }
+
+    document.querySelectorAll('.chat-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const url = getChatUrl(btn.dataset.platform);
+        if (url) window.open(url, '_blank');
+      });
+    });
+  </script>
+  <!-- END: Chat Options Script -->
 
     <script>
         // Language Dropdown Toggle
@@ -3167,6 +3324,49 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     </script>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 1) เก็บกลุ่มส่วนหลักทั้งหมด
+  const mainSections = [
+    document.querySelector('.hero'),
+    document.getElementById('search-section'),
+    document.querySelector('.categories'),
+    document.querySelector('.boat-services'),
+    document.getElementById('about-section'),
+    document.querySelector('footer')
+  ].filter(Boolean);
+
+  // 2) ฟังก์ชันซ่อน/แสดง
+  function hideMain()     { mainSections.forEach(el => el.style.display = 'none'); }
+  function showMain()     { mainSections.forEach(el => el.style.display = 'block'); }
+  function hideAllDetails(){ document.querySelectorAll('.car-detail-page').forEach(el => el.style.display = 'none'); }
+
+  // 3) ดักทุกลิงก์ที่ href="#...-detail"
+  document.querySelectorAll('a[href^="#"][href$="-detail"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href').slice(1);  // เอา "#suv-detail" → "suv-detail"
+      const detailSection = document.getElementById(targetId);
+      if (!detailSection) return;  // ถ้าไม่เจอ section นั้น ก็ข้าม
+      e.preventDefault();
+      hideMain();
+      hideAllDetails();
+      detailSection.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // 4) ปุ่ม “กลับหน้าหลัก” ในทุก section-detail
+  document.querySelectorAll('.car-detail-page .back-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      hideAllDetails();
+      showMain();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+});
+</script>
 
 </body>
 </html>
